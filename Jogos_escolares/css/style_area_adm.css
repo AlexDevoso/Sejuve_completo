@@ -1,0 +1,78 @@
+.bg_form {
+
+ margin-left: auto;
+    margin-right: auto;
+   
+      
+      width: 55%;
+      
+      
+      padding: 30px;
+      overflow-x:auto;
+    
+    
+
+}
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  border-radius: 5px;
+  overflow-x:auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  display: block;
+  
+
+
+}
+
+
+.content-table thead tr {
+
+  color: #ffffff;
+  text-align: center;
+
+
+
+}
+
+.content-table th,.content-table td {
+padding: 12px 15px;
+
+}
+
+.content-table td {
+  font-size: 15px;
+  
+}
+
+.content-table th {
+  font-size: 20px;
+  font-weight: 1;
+}
+
+
+
+
+
+
+
+.content-table tbody tr {
+border-bottom: 1px solid #dddddd;
+
+}
+
+.content-table tbody tr:nth-of-type(even) {
+
+background-color: #f3f3f3;
+}
+
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 1px solid #009879;
+}
+
+
+
