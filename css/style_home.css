@@ -1,0 +1,72 @@
+body{
+    background-image: linear-gradient(to bottom right ,#0066cc, #001a33);
+    font-family:Georgia, Times, serif!important;
+  }
+  
+  #Equipe_bg{
+    color: white;
+animation-name: example;
+animation-duration: 4s;
+  }
+  #equipe_painel{
+    background-color: #fff;
+animation-name: example2;
+animation-duration: 4s;
+  }
+  #nv{
+    background-color: none!important;
+  }
+  .nv{
+    background-color: #0066cc;
+  }
+  #info{
+    color: white;
+    animation-name: example;
+    animation-duration: 4s;
+   }
+   #bg_info{
+    background-color: #fff;
+    animation-name: example2;
+    animation-duration: 4s;
+   }
+   #img_card{
+    height: 250px;
+    
+  }
+
+  
+  #painelSejuve{
+    background-color: transparent!important;
+    color: white;
+    width: 90%;
+    margin:auto;
+    border:none;
+  }
+  #imgSejuve{
+    width:100%;
+ 
+  }
+  #titulo{
+   font-size: 45px;
+  }
+  #texto{
+   font-size: 20px;
+  }
+  @keyframes example2 {
+    0% {background-color:#0066cc ;}
+    25% {background-color:#0066cc;}
+    50%{background-color:#0080ff;}
+}
+@keyframes example {
+    0% {background-color:white;color:#0066cc}
+    25% {background-color:#80bfff;color:#0066cc }
+    50% {background-color:#3399ff;color:white}
+    90% {background-color:#0080ff;color:white } 
+}
+#contSele{
+  width: 90%!important;
+  margin: auto;
+}
+#cardSele{
+  margin: auto;
+}
