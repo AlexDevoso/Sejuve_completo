@@ -42,6 +42,12 @@
 #desc_card{
   font-size:18px!important;
 }
+#image_c{
+  height: 400px!important;
+}
+#image_c2{
+  height: 400px!important;
+}
 </style>
 
 
@@ -64,7 +70,7 @@
           Eventos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Calendário</a>
+        <a class="dropdown-item" href="eventos.html">Calendário</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class=" dropdown-menu dropdown-item">Sistema de Inscrições</a>
           </div>
@@ -92,27 +98,6 @@
 </div>
 
 
-<div id="carouselExampleInterval" class="carousel slide w-50" style="margin:auto; " data-ride="carousel" >
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-interval="10000">
-      <img src="./imagem/ev.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item" data-interval="2000">
-      <img src="./imagem/ap.jpg" class="d-block w-100" alt="..."> 
-    </div>
-    <div class="carousel-item">
-      <img src="./imagem/ap2.jpg" class="d-block w-100" alt="...">
-    </div>
-  </div>
-  <a class="carousel-control-prev " href="#carouselExampleInterval" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next w-20" href="#carouselExampleInterval" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
 
 <?php
   $sql = "SELECT * from selecoes_municipais";
@@ -125,14 +110,14 @@
 
 <div>
 <div class="shadow-lg p-3 mb-5 rounded" style="width: 50%; margin: auto; margin-top: 3%;" id="info">
-<p class="text-center font-weight-bold text-uppercase" id="titulo_card"> Selecão Municipal de <?php  echo $dados['modalidade_sm']." ".$dados['categoria_sm'];?></p>
+<p class="text-center font-weight-bold text-uppercase" id="titulo_card"> Selecão Municipal de <?php  echo $dados['modalidade_sm']." ".$dados['naipe_sm'];?></p>
 </div>
 
 <div class="card mb-4 bg-transparent border-0" style="width: 90%; margin:auto; height:100%">
   <div class="row no-gutters">
     <div class="col-md-6">
     <?php
-    echo '<img src="imagem/'.$dados["imagem1_sm"].'" class="card-img-top">';
+    echo '<img id="image_c2" src="imagem/'.$dados["imagem1_sm"].'" class="card-img-top" >';
   ?>
     </div>
     <div class="col-md-6">
@@ -181,13 +166,13 @@
  
   
   <?php
-    echo '<img src="imagem/'.$dados["imagem2_sm"].'" class="card-img-top">';
+    echo '<img id="image_c" src="imagem/'.$dados["imagem2_sm"].'" class="card-img-top" >';
   ?>
 </div>
 </div>
 
 <div class="col-md-6">
-<div class="card bg-transparent border-0" style="width: 80%; margin:auto; height:100%">
+<div class="card bg-transparent border-0" style="width: 80%; margin:auto; height:100%;">
 
 
   <div class="card-body">
@@ -198,7 +183,7 @@
  
   
   <?php
-    echo '<img src="imagem/'.$dados["imagem3_sm"].'" class="card-img-top">';
+    echo '<img id="image_c" src="imagem/'.$dados["imagem3_sm"].'" class="card-img-top">';
   ?>
 </div>
 </div>
@@ -212,7 +197,7 @@ else{
 ?>
 <div>
 <div class="shadow-lg p-3 mb-5 rounded" style="width: 50%; margin: auto; margin-top: 3%;" id="info">
-<p class="text-center font-weight-bold text-uppercase" id="titulo_card">Selecão Municipal de <?php  echo $dados['modalidade_sm']." ".$dados['categoria_sm'];?></p>
+<p class="text-center font-weight-bold text-uppercase" id="titulo_card">Selecão Municipal de <?php  echo $dados['modalidade_sm']." ".$dados['naipe_sm'];?></p>
 </div>
 
 <div class="card mb-4 bg-transparent border-0" style="max-width: 90%; margin:auto; height:100%">
@@ -248,7 +233,7 @@ else{
     </div>
     <div class="col-md-6">
     <?php
-    echo '<img src="imagem/'.$dados["imagem1_sm"].'" class="card-img-top">';
+    echo '<img id="image_c2" src="imagem/'.$dados["imagem1_sm"].'" class="card-img-top" >';
   ?>
     </div>
   </div>
@@ -267,7 +252,7 @@ else{
   </div>
  
   <?php
-    echo '<img src="imagem/'.$dados["imagem2_sm"].'" class="card-img-top">';
+    echo '<img id="image_c" src="imagem/'.$dados["imagem2_sm"].'" class="card-img-top">';
   ?>
 
 
@@ -286,7 +271,7 @@ else{
  
   
   <?php
-    echo '<img src="imagem/'.$dados["imagem3_sm"].'" class="card-img-top">';
+    echo '<img id="image_c" src="imagem/'.$dados["imagem3_sm"].'" class="card-img-top" >';
   ?>
 
 </div>

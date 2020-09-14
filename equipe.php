@@ -53,7 +53,8 @@ h5{
           Eventos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Calendário</a>
+        <a class="dropdown-item" href="eventos.html">Calendário</a>
+        <a class="dropdown-item" href="noticia.php">Notícia</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class=" dropdown-menu dropdown-item">Sistema de Inscrições</a>
           </div>

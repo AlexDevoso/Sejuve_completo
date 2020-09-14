@@ -7,8 +7,7 @@
 
   $sql_sele = "SELECT * from selecoes_municipais";
   $resultado_sele = mysqli_query($conexao, $sql_sele);
-?>
-
+?>  
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -62,7 +61,7 @@
           Eventos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Calendário</a>
+          <a class="dropdown-item" href="eventos.html">Calendário</a>
           <a class="dropdown-item" href="noticia.php">Notícia</a>
           <a class="dropdown-item" href="Jogos_escolares/">Jogos Escolares</a>
           <a class="dropdown-item" href="Jogos_escolares/interface/jogos.php">Futebol Municipal</a>
@@ -76,7 +75,7 @@
           <a class="dropdown-item" href="equipe.php">Equipe da Sejuve</a>
           <a class="dropdown-item" href="#">Seleções municipais</a>
           <a class="dropdown-item" href="Jogos_escolares/interface/adm.php">Administrativo</a>
-          <a class="dropdown-item" href="sejuve_sobre.php">Fale conosco</a>
+          <a class="dropdown-item" href="sejuve_sobre.php">Contato</a>
           
         </div>
       </li>
@@ -260,7 +259,7 @@ else{
 
 <div>
 <div class="card mb-3 bg-transparent border-0" >
-  <img src="./imagem/fala_jovem.jpg" class="card-img-top" alt="..." height="600">
+  <img src="./imagem/falajovem.jpeg" class="card-img-top" alt="..." height="600">
   <div class="card-body text-white text-uppercase">
     <h5 class="card-title font-weight-bold">Deixe suas sugestões e ajude a construir um Pentecoste melhor.</h5>
     <p class="card-text"></p>

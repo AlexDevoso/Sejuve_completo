@@ -65,7 +65,7 @@
           Eventos
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Calendário</a>
+          <a class="dropdown-item" href="eventos.html">Calendário</a>
           <a class="dropdown-item" href="./noticia.php/">Notícia</a>
           <a class="dropdown-item" href="./Jogos_escolares/">Jogos Escolares</a>
           <a class="dropdown-item" href="./Jogos_escolares/interface/jogos.php">Futebol Municipal</a>
@@ -103,13 +103,18 @@
       <div class="card-body">
         <h5 class="card-title"><?php echo $dados_no["titulo_no"];?></h5>
         <p class="card-text text-white"><?php echo $dados_no["descricao_no"];?></p>
+        <p class="card-text">
         <?php
-        echo '<p class="card-text"><a class="text-white" href='.$dados_no['link_no'].'>Ir para rede social  <a></p>'
+        echo '<a class="text-dark btn bg-warning" href='.$dados_no['link_no'].'>Ver na rede social  <a>'
         ?>
-        
+          <a class="text-white btn bg-primary " href="./noticia.php">Voltar</a>
+          </p>
       </div>
+      
     </div>
+  
   </div>
+
 </div>
 
 
