@@ -1,8 +1,8 @@
 <?php
     include "../funcoes/conexao.php";
-    $sql_noticia_painel = "SELECT * FROM noticia_painel";
+    $sql_noticia_painel = "SELECT * FROM noticia join noticia_painel where id_no = fk_noticia";
     $result_noticia = mysqli_query($conexao, $sql_noticia_painel);
-    $dados_noticia = mysqli_fetch_array($result_noticia);
+    
 
 ?>
 <!DOCTYPE html>
@@ -39,32 +39,29 @@
   <div class="shadow-lg p-3 mb-5 rounded" style="width: 50%; margin: auto; margin-top: 6%;" id="info">
 <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Informátivo.</p>
 </div>
+<?php 
+while($dados_noticia = mysqli_fetch_array($result_noticia)){
+?>
 
-  <form class="w-50" style="margin:auto;">
-  <div class="form-row text-white">
+ 
+  <div class="form-row text-white w-50" style="margin:auto;">
     <div class="form-group col-md-6">
       <label >Título</label>
-      <input type="text" class="form-control" >
+      <input type="text" class="form-control" value="<?php echo $dados_noticia['titulo_no']; ?>">
+      
     </div>
-    <div class="form-group col-md-6">
-      <label >Link</label>
-      <input type="text" class="form-control">
-    </div>
+    
   </div>
-  <div class="form-group text-white">
-    <label >Text</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group text-white">
-    <label >Imagem</label>
-    <br>
-    <input type="file">
-  </div>
+        
+  <form method="POST" action="../funcoes/deletar_informativo.php" class="w-50" style="margin:auto;">
+      <input type="hidden" name="id_no" value="<?php echo $dados_noticia['id_no'];?>">
+      <button type="submit" class="btn btn-danger" name="deletar_noticia">Deletar</button>
+      <a class="btn btn-success" name="editar_noticia" href="editar_informativo.php?id_no=<?php echo $dados_noticia['id_no'];?>">Editar</a>
+      </form>
 
-  <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
-
-
+<?php
+}
+?>
 
 <div class="shadow-lg p-3 mb-5 rounded" style="width: 50%; margin: auto; margin-top: 6%;" id="info">
 <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Seleções Municipais.</p>
