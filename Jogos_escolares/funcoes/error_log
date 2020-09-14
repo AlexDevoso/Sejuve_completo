@@ -1,0 +1,135 @@
+[12-Mar-2020 17:08:56 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 2
+[12-Mar-2020 17:08:56 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/login_escolares.php:1) in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 25
+[13-Mar-2020 07:53:32 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 2
+[13-Mar-2020 07:53:32 America/Fortaleza] PHP Warning:  mysqli_escape_string() expects parameter 2 to be string, array given in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 15
+[13-Mar-2020 07:53:32 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/cadastrar_escola.php:1) in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 87
+[13-Mar-2020 08:00:12 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 2
+[13-Mar-2020 08:00:12 America/Fortaleza] PHP Warning:  mysqli_escape_string() expects parameter 2 to be string, array given in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 15
+[13-Mar-2020 08:00:12 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/cadastrar_escola.php:1) in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 87
+[13-Mar-2020 08:18:59 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_equipe.php on line 19
+[13-Mar-2020 08:19:15 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_equipe.php on line 19
+[13-Mar-2020 08:22:00 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 2
+[13-Mar-2020 08:22:00 America/Fortaleza] PHP Warning:  mysqli_escape_string() expects parameter 2 to be string, array given in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 15
+[13-Mar-2020 08:22:01 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/cadastrar_escola.php:1) in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 22
+[13-Mar-2020 08:24:00 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 2
+[13-Mar-2020 08:24:00 America/Fortaleza] PHP Warning:  mysqli_escape_string() expects parameter 2 to be string, array given in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 15
+[13-Mar-2020 08:24:00 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/cadastrar_escola.php:1) in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 87
+[13-Mar-2020 08:51:19 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 2
+[13-Mar-2020 08:51:19 America/Fortaleza] PHP Warning:  mysqli_escape_string() expects parameter 2 to be string, array given in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 15
+[13-Mar-2020 08:51:19 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/cadastrar_escola.php:1) in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 87
+[13-Mar-2020 09:11:47 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 2
+[13-Mar-2020 09:11:47 America/Fortaleza] PHP Warning:  mysqli_escape_string() expects parameter 2 to be string, array given in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 15
+[13-Mar-2020 09:11:47 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/cadastrar_escola.php:1) in /home2/sejuve86/public_html/funcoes/cadastrar_escola.php on line 22
+[13-Mar-2020 09:18:43 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 21
+[13-Mar-2020 09:18:43 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 22
+[13-Mar-2020 09:18:47 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 21
+[13-Mar-2020 09:18:47 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 22
+[13-Mar-2020 09:48:34 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 21
+[13-Mar-2020 09:48:34 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 22
+[13-Mar-2020 09:48:38 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 21
+[13-Mar-2020 09:48:38 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 22
+[13-Mar-2020 11:05:11 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 2
+[13-Mar-2020 11:05:11 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/login_escolares.php:1) in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 25
+[13-Mar-2020 11:14:02 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 2
+[13-Mar-2020 11:14:02 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/login_escolares.php:1) in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 25
+[13-Mar-2020 11:14:15 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 2
+[13-Mar-2020 11:14:15 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/login_escolares.php:1) in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 25
+[13-Mar-2020 11:16:05 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 2
+[13-Mar-2020 11:16:05 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/login_escolares.php:1) in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 21
+[13-Mar-2020 11:17:05 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 2
+[13-Mar-2020 11:17:05 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/login_escolares.php:1) in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 21
+[13-Mar-2020 11:17:16 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 2
+[13-Mar-2020 11:17:16 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/login_escolares.php:1) in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 21
+[13-Mar-2020 11:20:50 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 2
+[13-Mar-2020 11:20:50 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/login_escolares.php:1) in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 21
+[13-Mar-2020 11:30:02 America/Fortaleza] PHP Warning:  session_start(): Cannot start session when headers already sent in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 2
+[13-Mar-2020 11:30:02 America/Fortaleza] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sejuve86/public_html/funcoes/login_escolares.php:1) in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 20
+[13-Mar-2020 11:43:34 America/Fortaleza] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 17
+[13-Mar-2020 11:43:41 America/Fortaleza] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 17
+[13-Mar-2020 11:43:47 America/Fortaleza] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 17
+[13-Mar-2020 11:44:04 America/Fortaleza] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 17
+[13-Mar-2020 11:45:12 America/Fortaleza] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 17
+[13-Mar-2020 11:45:26 America/Fortaleza] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 17
+[13-Mar-2020 11:45:38 America/Fortaleza] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 17
+[13-Mar-2020 11:45:44 America/Fortaleza] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 17
+[13-Mar-2020 11:46:02 America/Fortaleza] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/login_escolares.php on line 17
+[16-Mar-2020 07:08:50 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 21
+[16-Mar-2020 07:08:50 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 22
+[16-Mar-2020 07:08:54 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 21
+[16-Mar-2020 07:08:54 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 22
+[16-Mar-2020 07:10:20 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 21
+[16-Mar-2020 07:10:20 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 22
+[16-Mar-2020 07:20:39 America/Fortaleza] PHP Warning:  implode(): Argument must be an array in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 11
+[16-Mar-2020 07:20:39 America/Fortaleza] PHP Warning:  implode(): Argument must be an array in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 16
+[16-Mar-2020 07:21:09 America/Fortaleza] PHP Warning:  implode(): Argument must be an array in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 11
+[16-Mar-2020 07:21:09 America/Fortaleza] PHP Warning:  implode(): Argument must be an array in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 16
+[16-Mar-2020 14:56:53 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 21
+[16-Mar-2020 14:56:53 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_escola.php on line 22
+[17-Mar-2020 10:01:03 America/Fortaleza] PHP Warning:  getimagesize(): Filename cannot be empty in /home2/sejuve86/public_html/funcoes/editar_escola.php on line 35
+[17-Mar-2020 10:01:39 America/Fortaleza] PHP Warning:  getimagesize(): Filename cannot be empty in /home2/sejuve86/public_html/funcoes/editar_escola.php on line 35
+[17-Mar-2020 10:02:06 America/Fortaleza] PHP Warning:  getimagesize(): Filename cannot be empty in /home2/sejuve86/public_html/funcoes/editar_escola.php on line 35
+[17-Mar-2020 10:02:25 America/Fortaleza] PHP Warning:  getimagesize(): Filename cannot be empty in /home2/sejuve86/public_html/funcoes/editar_escola.php on line 35
+[17-Mar-2020 10:02:39 America/Fortaleza] PHP Warning:  getimagesize(): Filename cannot be empty in /home2/sejuve86/public_html/funcoes/editar_escola.php on line 35
+[17-Mar-2020 10:04:00 America/Fortaleza] PHP Warning:  getimagesize(): Filename cannot be empty in /home2/sejuve86/public_html/funcoes/editar_escola.php on line 35
+[17-Mar-2020 12:41:13 America/Fortaleza] PHP Warning:  mysqli_query(): MySQL server has gone away in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 17
+[17-Mar-2020 12:41:13 America/Fortaleza] PHP Warning:  mysqli_query(): Error reading result set's header in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 17
+[17-Mar-2020 12:41:13 America/Fortaleza] PHP Warning:  mysqli_fetch_row() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 18
+[17-Mar-2020 12:41:13 America/Fortaleza] PHP Warning:  implode(): Argument must be an array in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 19
+[17-Mar-2020 12:41:13 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 30
+[17-Mar-2020 12:41:13 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 36
+[17-Mar-2020 12:41:13 America/Fortaleza] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 85
+[17-Mar-2020 12:46:15 America/Fortaleza] PHP Warning:  mysqli_query(): MySQL server has gone away in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 17
+[17-Mar-2020 12:46:15 America/Fortaleza] PHP Warning:  mysqli_query(): Error reading result set's header in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 17
+[17-Mar-2020 12:46:15 America/Fortaleza] PHP Warning:  mysqli_fetch_row() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 18
+[17-Mar-2020 12:46:15 America/Fortaleza] PHP Warning:  implode(): Argument must be an array in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 19
+[17-Mar-2020 12:46:15 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 30
+[17-Mar-2020 12:46:15 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 36
+[17-Mar-2020 12:46:15 America/Fortaleza] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 85
+[17-Mar-2020 12:46:18 America/Fortaleza] PHP Warning:  mysqli_query(): MySQL server has gone away in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 17
+[17-Mar-2020 12:46:18 America/Fortaleza] PHP Warning:  mysqli_query(): Error reading result set's header in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 17
+[17-Mar-2020 12:46:18 America/Fortaleza] PHP Warning:  mysqli_fetch_row() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 18
+[17-Mar-2020 12:46:18 America/Fortaleza] PHP Warning:  implode(): Argument must be an array in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 19
+[17-Mar-2020 12:46:18 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 30
+[17-Mar-2020 12:46:18 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 36
+[17-Mar-2020 12:46:18 America/Fortaleza] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 85
+[17-Mar-2020 13:38:43 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 11
+[17-Mar-2020 13:38:43 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 14
+[17-Mar-2020 13:38:56 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 11
+[17-Mar-2020 13:38:56 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 14
+[17-Mar-2020 13:42:06 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 11
+[17-Mar-2020 13:42:06 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 14
+[17-Mar-2020 14:01:06 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 11
+[17-Mar-2020 14:01:06 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 14
+[18-Mar-2020 09:33:04 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 11
+[18-Mar-2020 09:33:04 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 14
+[18-Mar-2020 09:50:20 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 11
+[18-Mar-2020 09:50:20 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 14
+[18-Mar-2020 09:55:08 America/Fortaleza] PHP Warning:  mysqli_query(): Empty query in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 17
+[18-Mar-2020 09:55:08 America/Fortaleza] PHP Warning:  mysqli_fetch_row() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 18
+[18-Mar-2020 09:55:08 America/Fortaleza] PHP Warning:  implode(): Argument must be an array in /home2/sejuve86/public_html/funcoes/gerarpdf_escolares.php on line 19
+[18-Mar-2020 13:40:10 America/Fortaleza] PHP Warning:  getimagesize(): Filename cannot be empty in /home2/sejuve86/public_html/funcoes/editar_escola.php on line 35
+[18-Mar-2020 13:53:56 America/Fortaleza] PHP Warning:  getimagesize(): Filename cannot be empty in /home2/sejuve86/public_html/funcoes/editar_escola.php on line 35
+[18-Mar-2020 14:11:03 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 11
+[18-Mar-2020 14:11:03 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 14
+[18-Mar-2020 14:13:13 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 11
+[18-Mar-2020 14:13:13 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 14
+[18-Mar-2020 14:18:02 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 11
+[18-Mar-2020 14:18:02 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 14
+[18-Mar-2020 14:23:40 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 31
+[18-Mar-2020 14:23:40 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 34
+[18-Mar-2020 14:24:12 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 31
+[18-Mar-2020 14:24:12 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 34
+[18-Mar-2020 14:33:52 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 11
+[18-Mar-2020 14:33:52 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 14
+[19-Mar-2020 08:24:05 America/Fortaleza] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, bool given in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 11
+[19-Mar-2020 08:24:05 America/Fortaleza] PHP Warning:  unlink(../imagens/): Is a directory in /home2/sejuve86/public_html/funcoes/deletar_aluno.php on line 14
+[20-Mar-2020 16:55:15 America/Fortaleza] PHP Warning:  A non-numeric value encountered in /home2/sejuve86/public_html/funcoes/cadastrar_aluno.php on line 18
+[05-Apr-2020 07:36:12 America/Fortaleza] PHP Fatal error:  Uncaught Error: Call to a member function get_cellmap() on null in /home2/sejuve86/public_html/dompdf/src/FrameReflower/TableCell.php:37
+Stack trace:
+#0 /home2/sejuve86/public_html/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(895): Dompdf\FrameReflower\TableCell->reflow(NULL)
+#1 /home2/sejuve86/public_html/dompdf/src/FrameReflower/TableRow.php(52): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#2 /home2/sejuve86/public_html/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(895): Dompdf\FrameReflower\TableRow->reflow(NULL)
+#3 /home2/sejuve86/public_html/dompdf/src/FrameReflower/TableRowGroup.php(51): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#4 /home2/sejuve86/public_html/dompdf/src/FrameDecorator/AbstractFrameDecorator.php(895): Dompdf\FrameReflower\TableRowGroup->reflow(Object(Dompdf\FrameDecorator\Block))
+#5 /home2/sejuve86/public_html/dompdf/src/FrameReflower/Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#6 /home2/ in /home2/sejuve86/public_html/dompdf/src/FrameReflower/TableCell.php on line 37
