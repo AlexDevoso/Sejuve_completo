@@ -3,7 +3,8 @@
     $sql_noticia_painel = "SELECT * FROM noticia join noticia_painel where id_no = fk_noticia";
     $result_noticia = mysqli_query($conexao, $sql_noticia_painel);
     
-
+    $sql_selecoes = "SELECT * from selecoes_municipais";
+    $result_selecoes = mysqli_query($conexao, $sql_selecoes);
 ?>
 <!DOCTYPE html>
 
@@ -39,6 +40,9 @@
   <div class="shadow-lg p-3 mb-5 rounded" style="width: 50%; margin: auto; margin-top: 6%;" id="info">
 <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Informátivo.</p>
 </div>
+<div class="form-row text-white w-50" style="margin:auto;">
+<button type="submit" class="btn btn-primary" name="adcionar_noticia">Adcionar</button>
+</div>
 <?php 
 while($dados_noticia = mysqli_fetch_array($result_noticia)){
 ?>
@@ -66,34 +70,29 @@ while($dados_noticia = mysqli_fetch_array($result_noticia)){
 <div class="shadow-lg p-3 mb-5 rounded" style="width: 50%; margin: auto; margin-top: 6%;" id="info">
 <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Seleções Municipais.</p>
 </div>
+<?php 
+while($dados_selecoes = mysqli_fetch_array($result_selecoes)){
+?>
 
-  <form class="w-50" style="margin:auto;">
-  <div class="form-row text-white">
+ 
+  <div class="form-row text-white w-50" style="margin:auto;">
     <div class="form-group col-md-6">
       <label >Título</label>
-      <input type="text" class="form-control" >
+      <input type="text" class="form-control" value="<?php echo $dados_selecoes['desc4_sm']; ?>">
+      
     </div>
-    <div class="form-group col-md-6">
-      <label >Link</label>
-      <input type="text" class="form-control">
-    </div>
+    
   </div>
-  <div class="form-group text-white">
-    <label >Text</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group text-white">
-    <label >Imagem</label>
-    <br>
-    <input type="file">
-  </div>
+        
+  <form method="POST" action="../funcoes/deletar_informativo.php" class="w-50" style="margin:auto;">
+      <input type="hidden" name="id_sm" value="<?php echo $dados_selecoes['id_sm'];?>">
+      <button type="submit" class="btn btn-danger" name="deletar_selecoes">Deletar</button>
+      <a class="btn btn-success" name="editar_noticia" href="editar_informativo.php?id_sm=<?php echo $dados_selecoes['id_sm'];?>">Editar</a>
+      </form>
 
-  <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
-
-
-
-  </div>
+<?php
+}
+?>
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
   
   
@@ -199,7 +198,8 @@ while($dados_noticia = mysqli_fetch_array($result_noticia)){
   </div>
 </div>
 
-
+<div style="margin-top:10px;">
+</div>
 <footer style="   position: relative;
   left: 0;
   bottom: 0;

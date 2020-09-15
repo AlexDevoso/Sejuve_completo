@@ -6,6 +6,13 @@ if(isset($_GET['id_no'])){
     $result_no = mysqli_query($conexao, $sql_no);
     $dados_no = mysqli_fetch_array($result_no);
 }
+
+elseif(isset($_GET['id_sm'])){
+  $id_sm = mysqli_escape_string($conexao, $_GET['id_sm']);
+  $sql_sm = "SELECT * from selecoes_municipais where id_sm = '$id_sm'";
+  $result_sm = mysqli_query($conexao, $sql_sm);
+  $dados_sm = mysqli_fetch_array($result_sm);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +39,7 @@ if(isset($_GET['id_no'])){
   h5{
     color:#00ffff!important;
     font-weight:bold;
-  }
+  }>
  a:hover{
     color:#00ffff!important;
  }
@@ -40,16 +47,75 @@ if(isset($_GET['id_no'])){
 
 
 
+<?php
+if(!empty($_GET['id_no'])){
 
 
+?>
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/editar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label >Titulo</label>
+      <input type="text" class="form-control" id="inputEmail4" name="titulo_no" value="<?php echo $dados_no['titulo_no']; ?>">
+    </div>
+    <div class="form-group col-md-6">
+      <label>Descrição</label>
+      <input type="text" class="form-control" id="inputPassword4" name="link_no" value="<?php echo $dados_no['link_no']; ?>">
+    </div>
+  </div>
+  <div class="form-group">
+    <label >link</label>
+    <input type="text" class="form-control" id="inputAddress" name="descricao_no" value="<?php echo $dados_no['descricao_no'];?>">
+  </div>
+  <div class="form-group">
+    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_no['imagem_no'].'">'?>
+  </div>
+  <div class="form-group">
+    <label >Imagem</label>
+    <input type="file" class="" name="imagem_no" id="real-file" name="imagem_evento" onchange="previewImagem()">
+  </div>
+  <input type="hidden" name="id_no" value="<?php echo $dados_no['id_no'];?>"> 
+  <button type="submit" class="btn btn-primary" name="editar_informativo">Enviar</button>
+</form>
+</div>
+<?php
+}
+else if(!empty($_GET['id_sm'])){
+
+?>
+
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/editar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+    
+
+ 
+  <div class="form-group">
+  <label>Descrição</label>
+  <input type="text" class="form-control" id="inputPassword4" name="link_no" value="<?php echo $dados_sm['desc4_sm']; ?>">
+  </div>
+  <div class="form-group">
+    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_sm['imagem4_sm'].'">'?>
+  </div>
+  <div class="form-group">
+    <label >Imagem</label>
+    <input type="file" class="" name="imagem_no" id="real-file" name="imagem_evento" onchange="previewImagem()">
+  </div>
+  <input type="hidden" name="id_sm" value="<?php echo $dados_sm['id_sm'];?>"> 
+  <button type="submit" class="btn btn-primary" name="editar_informativo">Enviar</button>
+</form>
+</div>
 
 
+<?php
 
 
+} 
+?>
 
 
-
-
+<div style="margin-top:5px;">
+</div>
 <footer style="   position: relative;
   left: 0;
   bottom: 0;
@@ -62,6 +128,22 @@ if(isset($_GET['id_no'])){
   </div>
 
 </footer>
+
+<script>
+            function previewImagem(){
+                var imagem = document.querySelector('input#real-file').files[0];
+                var preview = document.getElementById("pre_img");
+                var reader = new FileReader();
+                reader.onloadend = function(){
+                    preview.src = reader.result;
+                }
+                if(imagem){
+                    reader.readAsDataURL(imagem);
+                }else{
+                    preview.src = "";
+                }
+            }
+    </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
