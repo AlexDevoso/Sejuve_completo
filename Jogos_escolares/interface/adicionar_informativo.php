@@ -3,6 +3,13 @@ include "../funcoes/conexao.php";
     $sql_noticia = "SELECT * from noticia where not exists(select * from noticia_painel where id_no = fk_noticia)";
     $result_noticia = mysqli_query($conexao, $sql_noticia);
 
+    if(isset($_GET['id_no'])){
+      $id_no = $_GET['id_no'];
+    }
+    elseif(isset($_GET['id_sm'])){
+      $id_sm = $_GET['id_sm'];
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +45,7 @@ include "../funcoes/conexao.php";
 
 
 <?php
+if(!empty($id_no)){
     while($dados_no = mysqli_fetch_array($result_noticia)){
 ?>
 
@@ -62,14 +70,60 @@ include "../funcoes/conexao.php";
     <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_no['imagem_no'].'">'?>
   </div>
   <input type="hidden" name="id_no" value="<?php echo $dados_no['id_no'];?>"> 
-  <button type="submit" class="btn btn-primary" name="adicionar_informativo">Adcionar</button>
+  <button type="submit" class="btn btn-primary" name="adicionar_informativo">Adicionar</button>
+</form>
+</div>
+
+<?php
+}
+}
+elseif(!empty($id_sm)){
+
+
+?>
+
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/adicionar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <label >Categoria</label>
+    <label></label>
+      <input type="text" class="form-control" id="inputEmail4" name="categoria_sm" >
+    </div>
+    <div class="form-group col-md-6">
+      <label>Modalidade</label>
+      <input type="text" class="form-control" id="inputPassword4" name="modalidade_sm">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <label >Titulo</label>
+    <label></label>
+      <input type="text" class="form-control" id="inputEmail4" name="titul4_sm" >
+    </div>
+    <div class="form-group col-md-6">
+      <label>Naipe</label>
+      <input type="text" class="form-control" id="inputPassword4" name="naipe_sm">
+    </div>
+  </div>
+  <div class="form-group">
+    <label >Descrição</label>
+    <input type="text" class="form-control" id="inputAddress" name="desc4_sm">
+  </div>
+  <div class="form-group">
+  <img width = "300" id="pre_img" src="../../imagem/" onchange="previewImagem()">
+  </div>
+  <div class="form-group">
+    <label >Imagem</label>
+    <input type="file" class="" name="imagem4_sm" id="real-file" onchange="previewImagem()">
+  </div>
+  <button type="submit" class="btn btn-primary" name="adicionar_informativo">Adicionar</button>
 </form>
 </div>
 
 <?php
 }
 ?>
-
 <div style="margin-top:5px;">
 </div>
 <footer style="   position: relative;

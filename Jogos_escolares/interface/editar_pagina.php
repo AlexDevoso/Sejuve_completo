@@ -5,6 +5,7 @@
     
     $sql_selecoes = "SELECT * from selecoes_municipais";
     $result_selecoes = mysqli_query($conexao, $sql_selecoes);
+    $id = 1;
 ?>
 <!DOCTYPE html>
 
@@ -20,182 +21,181 @@
 
 
 </head>
-<body >
-<ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist" style="margin-top:50px;">
+<body>
+
+<ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist" style="margin-top:10px;">
   <li class="nav-item" role="presentation">
-    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Páginal Inicial</a>
+    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Inicio</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Eventos</a>
+    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Sobre</a>
+    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
   </li>
 </ul>
+
+<!-- Começo da div que guarda o conteudo dos tab-pane -->
 <div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+<!-- tab-pane1 -->
+  <div class=" tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
   
-
-
-  <div class="shadow-lg p-3 mb-5 rounded" style="width: 50%; margin: auto; margin-top: 6%;" id="info">
-<p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Informátivo.</p>
+  
+  <div class="shadow-lg p-3 mb-5 rounded " style="width: 70%; margin: auto; margin-top: 6%;" id="info">
+<p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Informativo Sejuve</p>
 </div>
-<div class="form-row text-white w-50" style="margin:auto;">
-<button type="submit" class="btn btn-primary" name="adcionar_noticia">Adcionar</button>
-</div>
-<?php 
-while($dados_noticia = mysqli_fetch_array($result_noticia)){
-?>
-
- 
-  <div class="form-row text-white w-50" style="margin:auto;">
-    <div class="form-group col-md-6">
-      <label >Título</label>
-      <input type="text" class="form-control" value="<?php echo $dados_noticia['titulo_no']; ?>">
-      
+    <div class="form-row text-white w-50 justify-content-center" style="margin:auto;">
+    <a class="btn btn-primary" href="adicionar_informativo.php?id_no=<?php echo $id?>">Adicionar</a>
     </div>
-    
-  </div>
+    <?php 
+    while($dados_noticia = mysqli_fetch_array($result_noticia)){
+    ?>
+
+
+    <div class="form-row text-white w-100 justify-content-center" style="margin:auto;">
+        <div class="form-group col-md-6">
+        <label >Título</label>
+        <p>
+        <input type="text" class="form-control font-weight-bold" value="<?php echo $dados_noticia['titulo_no']; ?>">
+        <form method="POST" action="../funcoes/deletar_informativo.php" class="w-50" >
+        <input type="hidden" name="id_no" value="<?php echo $dados_noticia['id_no'];?>">
+        <button type="submit" class="btn btn-danger" name="deletar_noticia">Deletar</button>
+        <a class="btn btn-success" name="editar_noticia" href="editar_informativo.php?id_no=<?php echo $dados_noticia['id_no'];?>">Editar</a>
+        </form>
+
+        </p>
+        </div>
         
-  <form method="POST" action="../funcoes/deletar_informativo.php" class="w-50" style="margin:auto;">
-      <input type="hidden" name="id_no" value="<?php echo $dados_noticia['id_no'];?>">
-      <button type="submit" class="btn btn-danger" name="deletar_noticia">Deletar</button>
-      <a class="btn btn-success" name="editar_noticia" href="editar_informativo.php?id_no=<?php echo $dados_noticia['id_no'];?>">Editar</a>
-      </form>
-
-<?php
-}
-?>
-
-<div class="shadow-lg p-3 mb-5 rounded" style="width: 50%; margin: auto; margin-top: 6%;" id="info">
-<p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Seleções Municipais.</p>
-</div>
-<?php 
-while($dados_selecoes = mysqli_fetch_array($result_selecoes)){
-?>
-
- 
-  <div class="form-row text-white w-50" style="margin:auto;">
-    <div class="form-group col-md-6">
-      <label >Título</label>
-      <input type="text" class="form-control" value="<?php echo $dados_selecoes['desc4_sm']; ?>">
-      
     </div>
+
+    <?php
+    }
+    ?>
+
+    <div class="shadow-lg p-3 mb-5 rounded" style="width: 70%; margin: auto; margin-top: 6%;" id="info">
+    <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Seleções Municipais.</p>
+    </div>
+    <div class="form-row text-white w-50 justify-content-center" style="margin:auto;">
+    <a class="btn btn-primary" href="adicionar_informativo.php?id_sm=<?php echo $id;?>">Adicionar</a>
+    </div>
+    <?php 
+    while($dados_selecoes = mysqli_fetch_array($result_selecoes)){
+    ?>
+
     
-  </div>
+    <div class="form-row text-white w-100 justify-content-center" style="margin-left:auto;">
+        <div class="form-group col-md-6">
+        <label >Título</label>
+        <p>
+        <input type="text" class="form-control font-weight-bold" value="<?php echo $dados_selecoes['desc4_sm']; ?>">
+        <form method="POST" action="../funcoes/deletar_informativo.php" class="w-50" >
+        <input type="hidden" name="id_sm" value="<?php echo $dados_selecoes['id_sm'];?>">
+        <button type="submit" class="btn btn-danger" name="deletar_selecoes">Deletar</button>
+        <a class="btn btn-success" name="editar_noticia" href="editar_informativo.php?id_sm=<?php echo $dados_selecoes['id_sm'];?>">Editar</a>
+        </form>
+        </p>  
+        </div>
         
-  <form method="POST" action="../funcoes/deletar_informativo.php" class="w-50" style="margin:auto;">
-      <input type="hidden" name="id_sm" value="<?php echo $dados_selecoes['id_sm'];?>">
-      <button type="submit" class="btn btn-danger" name="deletar_selecoes">Deletar</button>
-      <a class="btn btn-success" name="editar_noticia" href="editar_informativo.php?id_sm=<?php echo $dados_selecoes['id_sm'];?>">Editar</a>
-      </form>
-
-<?php
-}
-?>
-  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-  
-  
-<div class="shadow-lg p-3 mb-5 rounded" style="width: 50%; margin: auto; margin-top: 6%;" id="info">
-<p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" > Eventos.</p>
-</div>
-
-  <form class="w-50" style="margin:auto;">
-  <div class="form-row text-white">
-    <div class="form-group col-md-6">
-      <label >Nome</label>
-      <input type="text" class="form-control" >
     </div>
-    <div class="form-group col-md-6">
-      <label >Data</label>
-      <input type="date" class="form-control">
+            
     </div>
-  </div>
-  <div class="form-group text-white">
-    <label >Descrição</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group text-white">
-    <label >Imagem</label>
-    <br>
-    <input type="file">
-  </div>
 
-  <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
+    <?php
+    }
+    ?>
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- final-tab-pane1 -->
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
 
-  
-  
-  
-  </div>
-  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-  
-  
-  
-  
-  
-  <div class="shadow-lg p-3 mb-5 rounded" style="width: 50%; margin: auto; margin-top: 6%;" id="info">
-<p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Equipe Sejuve.</p>
-</div>
 
-  <form class="w-50" style="margin:auto;">
-  <div class="form-row text-white">
-    <div class="form-group col-md-6">
-      <label >Nome</label>
-      <input type="text" class="form-control" >
-    </div>
-    <div class="form-group col-md-6">
-      <label >Data</label>
-      <input type="date" class="form-control">
-    </div>
-  </div>
-  <div class="form-group text-white">
-    <label >Descrição</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group text-white">
-    <label >Imagem</label>
-    <br>
-    <input type="file">
-  </div>
 
-  <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
 
-  
-<div class="shadow-lg p-3 mb-5 rounded" style="width: 50%; margin: auto; margin-top: 6%;" id="info">
-<p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Seleções Municipais.</p>
-</div>
 
-  <form class="w-50" style="margin:auto;">
-  <div class="form-row text-white">
-    <div class="form-group col-md-6">
-      <label >Nome</label>
-      <input type="text" class="form-control" >
-    </div>
-    <div class="form-group col-md-6">
-      <label >Data</label>
-      <input type="date" class="form-control">
-    </div>
-  </div>
-  <div class="form-group text-white">
-    <label >Descrição</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group text-white">
-    <label >Imagem</label>
-    <br>
-    <input type="file">
-  </div>
 
-  <button type="submit" class="btn btn-primary">Enviar</button>
-</form>
-  
-  
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Final da div que guarda o conteudo dos tab-pane -->
 </div>
 
 <div style="margin-top:10px;">

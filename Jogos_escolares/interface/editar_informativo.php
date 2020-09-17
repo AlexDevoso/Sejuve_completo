@@ -73,7 +73,7 @@ if(!empty($_GET['id_no'])){
   </div>
   <div class="form-group">
     <label >Imagem</label>
-    <input type="file" class="" name="imagem_no" id="real-file" name="imagem_evento" onchange="previewImagem()">
+    <input type="file" class="" name="imagem_no" id="real-file"  onchange="previewImagem()">
   </div>
   <input type="hidden" name="id_no" value="<?php echo $dados_no['id_no'];?>"> 
   <button type="submit" class="btn btn-primary" name="editar_informativo">Enviar</button>
@@ -92,17 +92,17 @@ else if(!empty($_GET['id_sm'])){
  
   <div class="form-group">
   <label>Descrição</label>
-  <input type="text" class="form-control" id="inputPassword4" name="link_no" value="<?php echo $dados_sm['desc4_sm']; ?>">
+  <input type="text" class="form-control" id="inputPassword4" name="desc4_sm" value="<?php echo $dados_sm['desc4_sm']; ?>">
   </div>
   <div class="form-group">
     <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_sm['imagem4_sm'].'">'?>
   </div>
   <div class="form-group">
     <label >Imagem</label>
-    <input type="file" class="" name="imagem_no" id="real-file" name="imagem_evento" onchange="previewImagem()">
+    <input type="file" class="" name="imagem_no" id="real-file" name="imagem4_sm" onchange="previewImagem()">
   </div>
   <input type="hidden" name="id_sm" value="<?php echo $dados_sm['id_sm'];?>"> 
-  <button type="submit" class="btn btn-primary" name="editar_informativo">Enviar</button>
+  <button type="submit" class="btn btn-primary" name="editar_informativo_sele">Enviar</button>
 </form>
 </div>
 
