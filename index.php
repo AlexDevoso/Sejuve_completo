@@ -5,7 +5,7 @@
   $resultado_np = mysqli_query($conexao, $sql_np);
 
 
-  $sql_sele = "SELECT * from selecoes_municipais";
+  $sql_sele = "SELECT * from selecoes_municipais where imagem4_sm != 'null'";
   $resultado_sele = mysqli_query($conexao, $sql_sele);
 ?>  
 <!DOCTYPE html>
