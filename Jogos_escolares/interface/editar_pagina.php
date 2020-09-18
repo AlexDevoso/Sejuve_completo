@@ -3,7 +3,7 @@
     $sql_noticia_painel = "SELECT * FROM noticia join noticia_painel where id_no = fk_noticia";
     $result_noticia = mysqli_query($conexao, $sql_noticia_painel);
     
-    $sql_selecoes = "SELECT * from selecoes_municipais";
+    $sql_selecoes = "SELECT * from selecoes_municipais where desc4_sm <> 'null'";
     $result_selecoes = mysqli_query($conexao, $sql_selecoes);
     $id = 1;
 ?>

@@ -117,7 +117,7 @@ elseif(!empty($id_sm)){
     <label >Imagem</label>
     <input type="file" class="" name="imagem4_sm" id="real-file" onchange="previewImagem()">
   </div>
-  <button type="submit" class="btn btn-primary" name="adicionar_informativo">Adicionar</button>
+  <button type="submit" class="btn btn-primary" name="adicionar_informativo_sele">Adicionar</button>
 </form>
 </div>
 
