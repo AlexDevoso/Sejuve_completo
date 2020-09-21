@@ -4,7 +4,7 @@ include('conexao.php');
     if(isset($_POST['deletar_noticia'])){
         $id_no = mysqli_escape_string($conexao, $_POST['id_no']);
 
-    $sql = "DELETE from noticia_painel where fk_noticia = '$id_no'";
+        $sql = "DELETE from noticia_painel where fk_noticia = '$id_no'";
         
         if(mysqli_query($conexao, $sql)){
             header('Location: ../interface/editar_pagina.php');
@@ -32,7 +32,25 @@ include('conexao.php');
         else{
             header('Location: ../interface/editar_pagina.php');
         }
-    }   
+    }
+
+    elseif(isset($_POST['deletar_noticia_total'])){
+        $id_no = mysqli_escape_string($conexao, $_POST['id_no']);
+        
+        $mostrar_imagem_nt = "SELECT imagem_no from noticia where id_no = '$id_no'";
+        $result_mostrar_nt = mysqli_query($conexao, $mostrar_imagem_nt);
+        $dados_mostrar_nt = mysqli_fetch_array($result_mostrar_nt);
+        
+        $sql_nt = "DELETE from noticia where id_no = '$id_no'";
+        
+        if(mysqli_query($conexao, $sql_nt)){
+            unlink("../../imagem/".$$dados_mostrar_nt['imagem_no']);
+            header('Location: ../interface/editar_pagina.php');
+        }
+        else{
+            header('Location: editar_pagina.php');
+        }
+    }
 
 
 
