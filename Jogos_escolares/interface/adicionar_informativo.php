@@ -123,6 +123,51 @@ elseif(!empty($id_sm)){
 
 <?php
 }
+else{
+?>
+
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/adicionar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label >Titulo</label>
+      <input type="text" class="form-control" id="inputEmail4" name="titulo_no">
+    </div>
+    <div class="form-group col-md-6">
+      <label>Descrição</label>
+      <input type="text" class="form-control" id="inputPassword4" name="link_no">
+    </div>
+  </div>
+  <div class="form-group">
+    <label >link</label>
+    <input type="text" class="form-control" id="inputAddress" name="descricao_no">
+  </div>
+  <div class="form-group">
+  <img width = "300" id="pre_img">
+  </div>
+  <div class="form-group">
+    <label >Imagem</label>
+    <input type="file" class="" name="imagem_no" id="real-file"  onchange="previewImagem()">
+  </div>
+  
+  <button type="submit" class="btn btn-primary" name="adicionar_informativo_nt">Enviar</button>
+
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<?php
+}
 ?>
 <div style="margin-top:5px;">
 </div>
