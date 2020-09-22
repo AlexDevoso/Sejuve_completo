@@ -1,17 +1,10 @@
 <?php
 include "../funcoes/conexao.php";
-if(isset($_GET['id_no'])){
-    $id_no = mysqli_escape_string($conexao, $_GET['id_no']);
-    $sql_no = "SELECT * from noticia where id_no = '$id_no'";
-    $result_no = mysqli_query($conexao, $sql_no);
-    $dados_no = mysqli_fetch_array($result_no);
-}
-
-elseif(isset($_GET['id_sm'])){
-  $id_sm = mysqli_escape_string($conexao, $_GET['id_sm']);
-  $sql_sm = "SELECT * from selecoes_municipais where id_sm = '$id_sm'";
-  $result_sm = mysqli_query($conexao, $sql_sm);
-  $dados_sm = mysqli_fetch_array($result_sm);
+if(isset($_GET['id_fun'])){
+    $id_fun = mysqli_escape_string($conexao, $_GET['id_fun']);
+    $sql_fun = "SELECT * from funcionario where id_fun = '$id_fun'";
+    $result_fun= mysqli_query($conexao, $sql_fun);
+    $dados_fun = mysqli_fetch_array($result_fun);
 }
 ?>
 <!DOCTYPE html>
@@ -22,10 +15,8 @@ elseif(isset($_GET['id_sm'])){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style_home.css">
     <title>Sejuve</title>
-
 </head>
 <body>
-
 <style>
   body{
     font-family: Verdana, sans-serif!important;
@@ -47,71 +38,57 @@ elseif(isset($_GET['id_sm'])){
 
 
 
-<?php
-if(!empty($_GET['id_no'])){
 
 
-?>
+
+
 <div class="w-50 text-white" style="margin:auto; margin-top:100px;">
-<form action="../funcoes/editar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+<form action="../funcoes/editar_sobre_sql.php" method="POST" enctype="multipart/form-data">
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label >Titulo</label>
-      <input type="text" class="form-control" id="inputEmail4" name="titulo_no" value="<?php echo $dados_no['titulo_no']; ?>">
+      <label >Nome</label>
+      <input type="text" class="form-control" id="inputEmail4" name="nome_fun" value="<?php echo $dados_fun['nome_fun']; ?>">
     </div>
     <div class="form-group col-md-6">
-      <label>Descrição</label>
-      <input type="text" class="form-control" id="inputPassword4" name="link_no" value="<?php echo $dados_no['link_no']; ?>">
+      <label>Função</label>
+      <input type="text" class="form-control" id="inputPassword4" name="funcao_fun" value="<?php echo $dados_fun['funcao_fun']; ?>">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label >Facebook</label>
+      <input type="text" class="form-control" id="inputEmail4" name="face_fun" value="<?php echo $dados_fun['face_fun']; ?>">
+    </div>
+    <div class="form-group col-md-6">
+      <label>Instagram</label>
+      <input type="text" class="form-control" id="inputPassword4" name="insta_fun" value="<?php echo $dados_fun['insta_fun']; ?>">
     </div>
   </div>
   <div class="form-group">
-    <label >link</label>
-    <input type="text" class="form-control" id="inputAddress" name="descricao_no" value="<?php echo $dados_no['descricao_no'];?>">
+    <label >Descricao</label>
+    <input type="text" class="form-control " id="inputAddress" name="descricao_fun" value="<?php echo $dados_fun['descricao_fun'];?>">
   </div>
   <div class="form-group">
-    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_no['imagem_no'].'">'?>
-  </div>
-  <div class="form-group">
-    <label >Imagem</label>
-    <input type="file" class="" name="imagem_no" id="real-file"  onchange="previewImagem()">
-  </div>
-  <input type="hidden" name="id_no" value="<?php echo $dados_no['id_no'];?>"> 
-  <button type="submit" class="btn btn-primary" name="editar_informativo">Enviar</button>
-</form>
-</div>
-<?php
-}
-else if(!empty($_GET['id_sm'])){
-
-?>
-
-<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
-<form action="../funcoes/editar_informativo_sql.php" method="POST" enctype="multipart/form-data">
-    
-
- 
-  <div class="form-group">
-  <label>Descrição</label>
-  <input type="text" class="form-control" id="inputPassword4" name="desc4_sm" value="<?php echo $dados_sm['desc4_sm']; ?>">
-  </div>
-  <div class="form-group">
-    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_sm['imagem4_sm'].'">'?>
+    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_fun['imagem_fun'].'">'?>
   </div>
   <div class="form-group">
     <label >Imagem</label>
-    <input type="file" class="" name="imagem_no" id="real-file" name="imagem4_sm" onchange="previewImagem()">
+    <input type="file" class="" name="imagem_fun" id="real-file"  onchange="previewImagem()">
   </div>
-  <input type="hidden" name="id_sm" value="<?php echo $dados_sm['id_sm'];?>"> 
-  <button type="submit" class="btn btn-primary" name="editar_informativo_sele">Enviar</button>
+  <input type="hidden" name="id_fun" value="<?php echo $dados_fun['id_fun'];?>"> 
+  <button type="submit" class="btn btn-primary" name="editar_sobre">Enviar</button>
 </form>
 </div>
 
 
-<?php
 
 
-} 
-?>
+
+
+
+
+
+
 
 
 <div style="margin-top:5px;">
@@ -149,6 +126,5 @@ else if(!empty($_GET['id_sm'])){
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
 </body>
 </html>

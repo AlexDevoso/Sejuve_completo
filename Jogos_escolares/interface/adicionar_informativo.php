@@ -1,18 +1,15 @@
 <?php
 include "../funcoes/conexao.php";
-if(isset($_GET['id_no'])){
-    $id_no = mysqli_escape_string($conexao, $_GET['id_no']);
-    $sql_no = "SELECT * from noticia where id_no = '$id_no'";
-    $result_no = mysqli_query($conexao, $sql_no);
-    $dados_no = mysqli_fetch_array($result_no);
-}
+    $sql_noticia = "SELECT * from noticia where not exists(select * from noticia_painel where id_no = fk_noticia)";
+    $result_noticia = mysqli_query($conexao, $sql_noticia);
 
-elseif(isset($_GET['id_sm'])){
-  $id_sm = mysqli_escape_string($conexao, $_GET['id_sm']);
-  $sql_sm = "SELECT * from selecoes_municipais where id_sm = '$id_sm'";
-  $result_sm = mysqli_query($conexao, $sql_sm);
-  $dados_sm = mysqli_fetch_array($result_sm);
-}
+    if(isset($_GET['id_no'])){
+      $id_no = $_GET['id_no'];
+    }
+    elseif(isset($_GET['id_sm'])){
+      $id_sm = $_GET['id_sm'];
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,15 +45,16 @@ elseif(isset($_GET['id_sm'])){
 
 
 <?php
-if(!empty($_GET['id_no'])){
-
-
+if(!empty($id_no)){
+    while($dados_no = mysqli_fetch_array($result_noticia)){
 ?>
+
 <div class="w-50 text-white" style="margin:auto; margin-top:100px;">
-<form action="../funcoes/editar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+<form action="../funcoes/adicionar_informativo_sql.php" method="POST" enctype="multipart/form-data">
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label >Titulo</label>
+    <label >Titulo</label>
+    <label></label>
       <input type="text" class="form-control" id="inputEmail4" name="titulo_no" value="<?php echo $dados_no['titulo_no']; ?>">
     </div>
     <div class="form-group col-md-6">
@@ -71,49 +69,106 @@ if(!empty($_GET['id_no'])){
   <div class="form-group">
     <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_no['imagem_no'].'">'?>
   </div>
-  <div class="form-group">
-    <label >Imagem</label>
-    <input type="file" class="" name="imagem_no" id="real-file"  onchange="previewImagem()">
-  </div>
   <input type="hidden" name="id_no" value="<?php echo $dados_no['id_no'];?>"> 
-  <button type="submit" class="btn btn-primary" name="editar_informativo">Enviar</button>
+  <button type="submit" class="btn btn-primary" name="adicionar_informativo">Adicionar</button>
 </form>
 </div>
+
 <?php
 }
-else if(!empty($_GET['id_sm'])){
+}
+elseif(!empty($id_sm)){
+
 
 ?>
 
 <div class="w-50 text-white" style="margin:auto; margin-top:100px;">
-<form action="../funcoes/editar_informativo_sql.php" method="POST" enctype="multipart/form-data">
-    
-
- 
-  <div class="form-group">
-  <label>Descrição</label>
-  <input type="text" class="form-control" id="inputPassword4" name="desc4_sm" value="<?php echo $dados_sm['desc4_sm']; ?>">
+<form action="../funcoes/adicionar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <label >Categoria</label>
+    <label></label>
+      <input type="text" class="form-control" id="inputEmail4" name="categoria_sm" >
+    </div>
+    <div class="form-group col-md-6">
+      <label>Modalidade</label>
+      <input type="text" class="form-control" id="inputPassword4" name="modalidade_sm">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+    <label >Titulo</label>
+    <label></label>
+      <input type="text" class="form-control" id="inputEmail4" name="titul4_sm" >
+    </div>
+    <div class="form-group col-md-6">
+      <label>Naipe</label>
+      <input type="text" class="form-control" id="inputPassword4" name="naipe_sm">
+    </div>
   </div>
   <div class="form-group">
-    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_sm['imagem4_sm'].'">'?>
+    <label >Descrição</label>
+    <input type="text" class="form-control" id="inputAddress" name="desc4_sm">
+  </div>
+  <div class="form-group">
+  <img width = "300" id="pre_img" src="../../imagem/" onchange="previewImagem()">
   </div>
   <div class="form-group">
     <label >Imagem</label>
-    <input type="file" class="" name="imagem_no" id="real-file" name="imagem4_sm" onchange="previewImagem()">
+    <input type="file" class="" name="imagem4_sm" id="real-file" onchange="previewImagem()">
   </div>
-  <input type="hidden" name="id_sm" value="<?php echo $dados_sm['id_sm'];?>"> 
-  <button type="submit" class="btn btn-primary" name="editar_informativo_sele">Enviar</button>
+  <button type="submit" class="btn btn-primary" name="adicionar_informativo_sele">Adicionar</button>
+</form>
+</div>
+
+<?php
+}
+else{
+?>
+
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/adicionar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label >Titulo</label>
+      <input type="text" class="form-control" id="inputEmail4" name="titulo_no">
+    </div>
+    <div class="form-group col-md-6">
+      <label>Descrição</label>
+      <input type="text" class="form-control" id="inputPassword4" name="link_no">
+    </div>
+  </div>
+  <div class="form-group">
+    <label >link</label>
+    <input type="text" class="form-control" id="inputAddress" name="descricao_no">
+  </div>
+  <div class="form-group">
+  <img width = "300" id="pre_img">
+  </div>
+  <div class="form-group">
+    <label >Imagem</label>
+    <input type="file" class="" name="imagem_no" id="real-file"  onchange="previewImagem()">
+  </div>
+  
+  <button type="submit" class="btn btn-primary" name="adicionar_informativo_nt">Enviar</button>
+
 </form>
 </div>
 
 
+
+
+
+
+
+
+
+
+
 <?php
-
-
-} 
+}
 ?>
-
-
 <div style="margin-top:5px;">
 </div>
 <footer style="   position: relative;
