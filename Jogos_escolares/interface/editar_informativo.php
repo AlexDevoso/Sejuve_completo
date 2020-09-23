@@ -99,7 +99,7 @@ else if(!empty($_GET['id_sm'])){
   </div>
   <div class="form-group">
     <label >Imagem</label>
-    <input type="file" class="" name="imagem_no" id="real-file" name="imagem4_sm" onchange="previewImagem()">
+    <input type="file" class="" name="imagem4_sm" id="real-file" name="imagem4_sm" onchange="previewImagem()">
   </div>
   <input type="hidden" name="id_sm" value="<?php echo $dados_sm['id_sm'];?>"> 
   <button type="submit" class="btn btn-primary" name="editar_informativo_sele">Enviar</button>

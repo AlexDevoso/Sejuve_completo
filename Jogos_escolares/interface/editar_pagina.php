@@ -284,8 +284,10 @@
         <label >Nome</label>
         <p>
         <input type="text" class="form-control font-weight-bold" value="<?php echo $dados_funcionario['nome_fun']; ?>">
-        <form method="POST" action="../funcoes/deletar_sobre.php" class="w-50" >
+        <form method="POST" action="../funcoes/deletar_sobre.php" class="w-50">
+
         <input type="hidden" name="id_fun" value="<?php echo $dados_funcionario['id_fun'];?>">
+        
         <button type="submit" class="btn btn-danger" name="deletar_funcionario">Deletar</button>
         <a class="btn btn-success" name="editar_funcionario" href="editar_sobre.php?id_fun=<?php echo $dados_funcionario['id_fun'];?>">Editar</a>
         </form>
