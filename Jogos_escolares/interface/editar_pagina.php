@@ -168,11 +168,11 @@
     Começo tab2
    -->
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-  
+  <!--
     <div class="shadow-lg p-3 mb-5 rounded " style="width: 70%; margin: auto; margin-top: 6%;" id="info">
     <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Calendário</p>
     </div>
-  
+  -->
   
   
   
@@ -328,7 +328,8 @@
     <div class="form-row text-white w-100 justify-content-center" style="margin:auto;">
 
     <div class="form-row text-white w-50 justify-content-center" style="margin:auto;">
-    <a class="btn btn-primary" href="adicionar_sobre.php">Adicionar</a>
+    <a class="btn btn-primary" href="adicionar_informativo.php?id_sm=<?php echo $id;?>">Adicionar</a>
+
     </div>
     <?php 
     while($dados_sele = mysqli_fetch_array($result_sele)){
