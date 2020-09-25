@@ -12,7 +12,8 @@
     $sql_sele =  "SELECT * from selecoes_municipais";
     $result_sele = mysqli_query($conexao, $sql_sele);
 
-
+    $sql_cp = "SELECT * from card_pagina";
+    $resultado_cp = mysqli_query($conexao, $sql_cp);
 
     $sql_selecoes = "SELECT * from selecoes_municipais where desc4_sm <> 'null'";
     $result_selecoes = mysqli_query($conexao, $sql_selecoes);
@@ -108,7 +109,7 @@
         <form method="POST" action="../funcoes/deletar_informativo.php" class="w-50" >
         <input type="hidden" name="id_sm" value="<?php echo $dados_selecoes['id_sm'];?>">
         <button type="submit" class="btn btn-danger" name="deletar_selecoes">Deletar</button>
-        <a class="btn btn-success" name="editar_noticia" href="editar_informativo.php?id_sm=<?php echo $dados_selecoes['id_sm'];?>">Editar</a>
+        <a class="btn btn-success" href="editar_informativo.php?id_sm=<?php echo $dados_selecoes['id_sm'];?>">Editar</a>
         </form>
         </p>  
         </div>
@@ -129,8 +130,33 @@
   
   
   
-  
-  
+  <?php
+    while($dados_cp = mysqli_fetch_array($resultado_cp)){
+  ?>
+  <div class="shadow-lg p-3 mb-5 rounded " style="width: 70%; margin: auto; margin-top: 6%;" id="info">
+  <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" ><?php echo $dados_cp['titulo_painel_cp'] ?></p>
+  </div>
+
+
+
+  <div class="form-row text-white w-100 justify-content-center" style="margin-left:auto;">
+        <div class="form-group col-md-6">
+        <label >Título</label>
+        <p>
+        <input type="text" class="form-control font-weight-bold" value="<?php echo $dados_cp['titulo_cp']; ?>">
+        <form method="POST" action="../funcoes/deletar_informativo.php" class="w-50" >
+        <input type="hidden" name="id_cp" value="<?php echo $dados_cp['id_cp'];?>">
+        <button type="submit" class="btn btn-danger" name="deletar_card">Deletar</button>
+        <a class="btn btn-success" href="editar_informativo.php?id_cp=<?php echo $dados_cp['id_cp'];?>">Editar</a>
+        </form>
+        </p>  
+        </div>
+        
+    </div>
+
+  <?php
+  }
+  ?>
   
   
   
@@ -356,6 +382,8 @@
     }
     ?>
     </div>
+
+
    <!-- 
     Final tab3
     -->
