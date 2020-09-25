@@ -63,6 +63,10 @@ include('conexao.php');
 
     }
 
+    elseif(isset($_POST['deletar_card'])){
+        $id_no = mysqli_escape_string($conexao, $_POST['id_no']);
+    }
+
 
 
 

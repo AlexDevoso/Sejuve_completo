@@ -152,6 +152,85 @@ elseif(isset($_POST['editar_informativo_sele'])){
             $_SESSION['login'][2] = " ERRO AO ATUALIZADO COM SUCESSO";
         }
     } 
+}//final função editar seleção
+
+elseif(isset($_POST['editar_informativo_cp'])){
+
+    $titulo_painel_cp = mysqli_escape_string($conexao, $_POST['titulo_painel_cp']);
+    $titulo_cp = mysqli_escape_string($conexao, $_POST['titulo_cp']);
+    $desc_cp = mysqli_escape_string($conexao, $_POST['desc_cp']);
+    $link_cp = mysqli_escape_string($conexao, $_POST['link_cp']);
+    $imagem_cp = $_FILES['imagem_cp'];
+    $id_cp = mysqli_escape_string($conexao, $_POST['id_cp']);    
+
+
+    //se a logo foi selecionada
+    if (!empty($imagem_cp["name"])) {
+        //máxima em piexels
+        $lagura = 7000;
+        $altura = 7000;
+        //máximo em bytes
+        $tamanho = 500000;
+        $error = array();
+        //verifica se o arquivo é uma imagem
+        if (!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $imagem_cp['type'])) {
+            $error[1] = "ISSO NÃO É uma imagem";
+            header('Location: ../interface/editar_pagina1.php');
+        }
+        //pega as dimensões da imagem
+        $dimensões = getimagesize($imagem_cp["tmp_name"]);
+
+        //verifica se a largura da imagem é maior que largura permitida
+        if ($dimensões[0] > $lagura) {
+            $error[2] = "A largura da imagem não deve ultrapassar " . $lagura . "pixels";
+            header('Location: ../interface/editar_pagina2.php');
+        }
+        //verifica se a altura da imagem é maior que a altura permitida
+        if ($dimensões[0] > $altura) {
+            $error[3] = "A altura da imagem não deve ultrapassar " . $altura . " pixels";
+            header('Location: ../interface/editar_pagina3.php');
+        }
+        //verifica o tamanho em bytes da imagem
+        if ($imagem_cp["size"] > $tamanho) {
+            $error[4] = "A imagem deve ter no máximo " . $tamanho . " bytes";
+            header('Location: ../interface/editar_pagina4.php');
+        }
+        //se não houver erro
+        if (count($error) == 0) {
+            //pega a extensão da imagem
+            preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $imagem_cp["name"], $ext);
+            //gera um nome único para a imagem
+            $nome_imagem = md5(uniqid()) . "." . $ext[1];
+            //camihno de onde ficará a imagem
+            $caminho_imagem = "../../imagem/" . $nome_imagem;
+            //faz o upload da imagem para seu rad2deg(number)espectivo caminho
+            move_uploaded_file($imagem_cp["tmp_name"], $caminho_imagem);
+
+            //inserindo dados no banco1
+            $sql_cp = "UPDATE card_pagina set titulo_painel_cp = '$titulo_painel_cp', titulo_cp = '$titulo_cp', desc_cp = '$desc_cp',
+            link_cp = '$link_cp', imagem_cp = '$nome_imagem' where id_cp = '$id_cp'";
+            if (mysqli_query($conexao, $sql_cp)) {
+                header('Location: ../interface/editar_pagina.php');
+                $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+            }
+            else{
+                header('Location: ../interface/editar_pagina2.php');
+                
+            }
+        }
+    }
+    else{
+        $sql_cp = "UPDATE card_pagina set titulo_painel_cp = '$titulo_painel_cp', titulo_cp = '$titulo_cp', desc_cp = '$desc_cp',
+            link_cp = '$link_cp' where id_cp = '$id_cp'";
+        if (mysqli_query($conexao, $sql_cp)) {
+            header('Location: ../interface/editar_pagina.php');
+            $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+        }
+        else{
+             header('Location: ../interface/editar_pagina.php');
+            $_SESSION['login'][2] = " ERRO AO ATUALIZADO COM SUCESSO";
+        }
+    } 
 }
 
 ?>
