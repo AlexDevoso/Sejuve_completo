@@ -7,6 +7,9 @@
 
   $sql_sele = "SELECT * from selecoes_municipais where imagem4_sm != 'null'";
   $resultado_sele = mysqli_query($conexao, $sql_sele);
+
+  $sql_cp = "SELECT * from card_pagina";
+  $resultado_cp = mysqli_query($conexao, $sql_cp);
 ?>  
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -25,15 +28,16 @@
 <style>
   body{
     font-family: Verdana, sans-serif!important;
-    font-weight:bold;
+    font-weight: bold;
     text-align: justify;
   }
   p{
     font-family: Helvetica, sans-serif!important;
     font-weight:bold;
+    font-size: 16px;
   }
   h5{
-    color:#00ffff!important;
+    
   }
 </style>
 
@@ -222,13 +226,13 @@ else{
 ?>
 
 <div class="col-sm-4" id="div_sele">
-<div class="card bg-transparent text-white" id="card_sele" style="width: 17rem; border:none; margin-left:50px;">
+<div class="card bg-transparent text-white" id="card_sele" style="width: 20rem; border:none; margin-left:auto:">
   <?php
   echo'<img src="./imagem/'.$dados_sele['imagem4_sm'].'" id="img_card" class="card-img-top"  style="border-radius:50%;">';
   ?>
   <div class="card-body">
     <h5 class="card-title text-uppercase font-weight-bold"><?php echo $dados_sele['modalidade_sm']." ".$dados_sele['naipe_sm']; ?> </h5>
-    <p class="card-text text-uppercase"><?php echo $dados_sele['desc4_sm'] ?></p>
+   
     <p ><a href="#" class="btn btn-primary ">Mais sobre</a></p>
   </div>
 </div>
@@ -239,35 +243,63 @@ else{
 </div>
     </div>
 
+<?php
+while($dados_cp = mysqli_fetch_array($resultado_cp)){
+if(!empty($dados_cp['titulo_painel_cp'])){
+
+
+?>
     <div class="shadow-lg p-3 mb-5 rounded" style="width: 60%; margin: auto; margin-top: 6%;" id="info">
-<p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Time Sejuve.</p>
+<p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" ><?php echo $dados_cp['titulo_painel_cp'];?></p>
 </div>
+<?php
+}
+?>
 
 <div>
 <div class="card mb-3 bg-transparent border-0">
-  <img src="./imagem/sejuve.jpg" class="card-img-top" alt="...">
+<?php
+  echo '<img src="./imagem/'.$dados_cp['imagem_cp'].'" class="card-img-top"  height="600" alt="...">';
+?>
+  
   <div class="card-body text-white text-uppercase">
-    <h5 class="card-title font-weight-bold">Conheça o time da Secretaria</h5>
-    <p class="card-text">Assim como jogadores que a cada partida dão seu melhor, nosso time a cada dia faz o melhor para o esporte e a juventude de Pentecoste.</p>
-    <p class="card-text text-capitalize "><small><a href="./equipe.php" class="btn btn-primary">Escalação</a></small></p>
+  <?php 
+    if(!empty($dados_cp['titulo_cp'])){
+
+  ?>
+    <h5 class="card-title font-weight-bold"><?php echo $dados_cp['titulo_cp'] ?></h5>
+    <?php
+    }
+    ?>
+
+    <?php 
+    if(!empty($dados_cp['desc_cp'])){
+
+  ?>
+    <p class="card-text"><?php echo $dados_cp['desc_cp'];?></p>
+    <?php
+    }
+    ?>
+
+<?php 
+    if(!empty($dados_cp['link_cp'])){
+
+  ?>
+    <p class="card-text text-capitalize "><small>
+    <?php echo '<a href="'.$dados_cp['link_cp'].'" class="btn btn-primary">Escalação</a>'?>
+    </small></p>
+    <?php
+    }
+    ?>
+
   </div>
 </div>
 <div>
 
-<div class="shadow-lg p-3 mb-5 rounded" style="width: 60%; margin: auto; margin-top: 6%;" id="info">
-<p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Fala Jovem.</p>
-</div>
+<?php
+}
+?>
 
-<div>
-<div class="card mb-3 bg-transparent border-0" >
-  <img src="./imagem/falajovem.jpeg" class="card-img-top" alt="..." height="600">
-  <div class="card-body text-white text-uppercase">
-    <h5 class="card-title font-weight-bold">Deixe suas sugestões e ajude a construir um Pentecoste melhor.</h5>
-    <p class="card-text"></p>
-    <p class="card-text text-capitalize "><small><a href="https://forms.gle/XrPumZZDZYYDt4zG6" class="btn btn-primary">Click aqui</a></small></p>
-  </div>
-</div>
-<div>
 
 <div style="margin-top:10px;">
 
