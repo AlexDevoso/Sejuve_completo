@@ -1,5 +1,6 @@
 <?php
     include "../funcoes/conexao.php";
+
     $sql_noticia_painel = "SELECT * FROM noticia join noticia_painel where id_no = fk_noticia";
     $result_noticia_painel = mysqli_query($conexao, $sql_noticia_painel);
     
@@ -34,6 +35,9 @@
 
 </head>
 <body>
+
+
+
 
 <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist" style="margin-top:10px;">
   <li class="nav-item" role="presentation">
@@ -128,15 +132,16 @@
   
   
   
-  
-  
+
   <?php
     while($dados_cp = mysqli_fetch_array($resultado_cp)){
   ?>
   <div class="shadow-lg p-3 mb-5 rounded " style="width: 70%; margin: auto; margin-top: 6%;" id="info">
   <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" ><?php echo $dados_cp['titulo_painel_cp'] ?></p>
   </div>
-
+  <div class="form-row text-white w-50 justify-content-center" style="margin:auto;">
+    <a class="btn btn-primary" href="adicionar_informativo.php?id_cp=<?php echo $id;?>">Adicionar</a>
+    </div>
 
 
   <div class="form-row text-white w-100 justify-content-center" style="margin-left:auto;">
@@ -145,7 +150,7 @@
         <p>
         <input type="text" class="form-control font-weight-bold" value="<?php echo $dados_cp['titulo_cp']; ?>">
         <form method="POST" action="../funcoes/deletar_informativo.php" class="w-50" >
-        <input type="hidden" name="id_cp" value="<?php echo $dados_cp['id_cp'];?>">
+        <input type="hidden" name="id_cp" value=" <?php echo $dados_cp['id_cp'];?> ">
         <button type="submit" class="btn btn-danger" name="deletar_card">Deletar</button>
         <a class="btn btn-success" href="editar_informativo.php?id_cp=<?php echo $dados_cp['id_cp'];?>">Editar</a>
         </form>
@@ -469,6 +474,12 @@ $('#myTab a').on('click', function (e) {
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
 </body>
 </html>
