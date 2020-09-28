@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('conexao.php');
+include ('conexao.php');
     if(isset($_POST['deletar_noticia'])){
         $id_no = mysqli_escape_string($conexao, $_POST['id_no']);
 
@@ -63,8 +63,23 @@ include('conexao.php');
 
     }
 
+
     elseif(isset($_POST['deletar_card'])){
-        $id_no = mysqli_escape_string($conexao, $_POST['id_no']);
+        $id_cp = mysqli_escape_string($conexao, $_POST['id_cp']);
+
+        $sql_imagem = "SELECT imagem_cp from card_pagina where id_cp = '$id_cp'";
+        $result_imagem = mysqli_query($conexao, $sql_imagem);
+        $dados_imagem = mysqli_fetch_array($result_imagem);
+
+        $sql_delete = "DELETE from card_pagina where id_cp = '$id_cp'";
+
+        if(mysqli_query($conexao, $sql_delete)){
+           
+            header("Location: ../interface/editar_pagina.php");
+        }
+        else{
+            header("Location: ../interface/editar_pagina.php");
+        }
     }
 
 
