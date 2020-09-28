@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('conexao.php');
+include ('conexao.php');
 if(isset($_POST['editar_informativo'])){
     $titulo_no = mysqli_escape_string($conexao, $_POST['titulo_no']);
     $descricao_no = mysqli_escape_string($conexao, $_POST['descricao_no']);
@@ -8,6 +8,9 @@ if(isset($_POST['editar_informativo'])){
     $imagem_no = $_FILES['imagem_no'];
     $id_no = mysqli_escape_string($conexao, $_POST['id_no']);    
 
+    $sql_imagem_no = "SELECT imagem_no FROM noticia where id_no = '$id_no'";
+    $result_imagem_no = mysqli_query($conexao, $sql_imagem_no);
+    $dados_imagem_no = mysqli_fetch_array($result_imagem_no);
 
     //se a logo foi selecionada
     if (!empty($imagem_no["name"])) {
@@ -58,6 +61,7 @@ if(isset($_POST['editar_informativo'])){
             //inserindo dados no banco1
             $sql = "UPDATE noticia set titulo_no = '$titulo_no', imagem_no = '$nome_imagem', descricao_no = '$descricao_no', link_no = '$link_no' where id_no = '$id_no'";
             if (mysqli_query($conexao, $sql)) {
+                unlink("../../imagem/".$dados_imagem_no['imagem_no']);
                 header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
             }
@@ -90,6 +94,9 @@ elseif(isset($_POST['editar_informativo_sele'])){
     $imagem4_sm = $_FILES['imagem4_sm'];
     $id_sm = mysqli_escape_string($conexao, $_POST['id_sm']);    
 
+    $sql_imagem_sm = "SELECT imagem4_sm FROM selecoes_municipais where id_sm = '$id_sm'";
+    $result_imagem_sm = mysqli_query($conexao, $sql_imagem_sm);
+    $dados_imagem_sm = mysqli_fetch_array($result_imagem_sm);
 
     //se a logo foi selecionada
     if (!empty($imagem4_sm["name"])) {
@@ -141,6 +148,7 @@ elseif(isset($_POST['editar_informativo_sele'])){
             //inserindo dados no banco1
             $sql_sele = "UPDATE selecoes_municipais set desc4_sm = '$desc4_sm', imagem4_sm = '$nome_imagem' where id_sm = '$id_sm'";
             if (mysqli_query($conexao, $sql_sele)) {
+                unlink("../../imagem/".$dados_imagem_sm['imagem4_sm']);
                 header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
             }
@@ -172,6 +180,9 @@ elseif(isset($_POST['editar_informativo_cp'])){
     $imagem_cp = $_FILES['imagem_cp'];
     $id_cp = mysqli_escape_string($conexao, $_POST['id_cp']);    
 
+    $sql_imagem_cp = "SELECT imagem_cp FROM card_pagina where id_cp = '$id_cp'";
+    $result_imagem_cp = mysqli_query($conexao, $sql_imagem_cp);
+    $dados_imagem_cp = mysqli_fetch_array($result_imagem_cp);
 
     //se a logo foi selecionada
     if (!empty($imagem_cp["name"])) {
@@ -224,6 +235,7 @@ elseif(isset($_POST['editar_informativo_cp'])){
             $sql_cp = "UPDATE card_pagina set titulo_painel_cp = '$titulo_painel_cp', titulo_cp = '$titulo_cp', desc_cp = '$desc_cp',
             link_cp = '$link_cp', imagem_cp = '$nome_imagem' where id_cp = '$id_cp'";
             if (mysqli_query($conexao, $sql_cp)) {
+                unlink("../../imagem/".$dados_imagem_cp['imagem_cp']);
                 header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
             }
