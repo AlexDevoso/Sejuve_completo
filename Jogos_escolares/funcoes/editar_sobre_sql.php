@@ -9,6 +9,10 @@
         $descricao_fun = mysqli_escape_string($conexao, $_POST['descricao_fun']);
         $imagem_fun = $_FILES['imagem_fun'];
 
+        $sql_imagem_fun = "SELECT imagem_fun FROM funcionario where id_fun = '$id_fun'";
+        $result_fun = mysqli_query($conexao, $sql_imagem_fun);
+        $dados_fun = mysqli_fetch_array($result_fun);
+        
         //se a logo foi selecionada
     if (!empty($imagem_fun["name"])) {
         //máxima em piexels
@@ -49,12 +53,13 @@
             //camihno de onde ficará a imagem
             $caminho_imagem = "../../imagem/" . $nome_imagem;
             //faz o upload da imagem para seu rad2deg(number)espectivo caminho
-            move_uploaded_file($imagem_no["tmp_name"], $caminho_imagem);
+            move_uploaded_file($imagem_fun["tmp_name"], $caminho_imagem);
 
             //inserindo dados no banco1
             $sql = "UPDATE funcionario set nome_fun = '$nome_fun', funcao_fun = '$funcao_fun', imagem_fun = '$nome_imagem', descricao_fun = '$descricao_fun', 
             face_fun = '$face_fun', insta_fun = '$insta_fun' where id_fun = '$id_fun'";
             if (mysqli_query($conexao, $sql)) {
+                unlink("../../imagem/".$dados_fun['imagem_fun']);
                 header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
             }
@@ -96,6 +101,10 @@
 
         $imagem1_sm = $_FILES['imagem1_sm'];
         
+        
+        $sql_imagem_sele1 = "SELECT imagem1_sm FROM selecoes_municipais where id_sm = '$id_sm'";
+        $result_sele1 = mysqli_query($conexao, $sql_imagem_sele1);
+        $dados_sele1 = mysqli_fetch_array($result_sele1);
 
 
          //se a logo foi selecionada
@@ -148,6 +157,7 @@
             $sql = "UPDATE selecoes_municipais set titul_sm1 = '$titul_sm1', desc1_sm = '$desc1_sm', 
             imagem1_sm = '$nome_imagem' where id_sm = '$id_sm'";
             if (mysqli_query($conexao, $sql)) {
+                unlink("../../imagem/".$dados_sele1['imagem1_sm']);
                 header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
             }
@@ -186,6 +196,10 @@
 
         $imagem2_sm = $_FILES['imagem2_sm'];
 
+
+        $sql_imagem_sele2 = "SELECT imagem2_sm FROM selecoes_municipais where id_sm = '$id_sm'";
+        $result_sele2 = mysqli_query($conexao, $sql_imagem_sele2);
+        $dados_sele2 = mysqli_fetch_array($result_sele2);
 
          //se a logo foi selecionada
     if (!empty($imagem2_sm["name"])) {
@@ -237,6 +251,8 @@
             $sql = "UPDATE selecoes_municipais set titul_sm2 = '$titul_sm2', desc2_sm = '$desc2_sm', 
             imagem2_sm = '$nome_imagem' where id_sm = '$id_sm'";
             if (mysqli_query($conexao, $sql)) {
+                unlink("../../imagem/".$dados_sele2['imagem2_sm']);
+
                 header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
             }
@@ -274,6 +290,10 @@
         $desc3_sm = mysqli_escape_string($conexao, $_POST['desc3_sm']);
   
         $imagem3_sm = $_FILES['imagem3_sm'];
+
+        $sql_imagem_sele3 = "SELECT imagem3_sm FROM selecoes_municipais where id_sm = '$id_sm'";
+        $result_sele3 = mysqli_query($conexao, $sql_imagem_sele3);
+        $dados_sele3 = mysqli_fetch_array($result_sele3);
 
 
          //se a logo foi selecionada
@@ -326,6 +346,7 @@
             $sql = "UPDATE selecoes_municipais set titul_sm3 = '$titul_sm3', desc3_sm = '$desc3_sm', 
             imagem3_sm = '$nome_imagem' where id_sm = '$id_sm'";
             if (mysqli_query($conexao, $sql)) {
+                unlink("../../imagem/".$dados_sele3['imagem3_sm']);
                 header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
             }

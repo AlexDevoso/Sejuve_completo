@@ -48,7 +48,7 @@
             //camihno de onde ficará a imagem
             $caminho_imagem = "../../imagem/" . $nome_imagem;
             //faz o upload da imagem para seu rad2deg(number)espectivo caminho
-            move_uploaded_file($imagem_no["tmp_name"], $caminho_imagem);
+            move_uploaded_file($imagem_fun["tmp_name"], $caminho_imagem);
 
             //inserindo dados no banco1
             $sql = "INSERT INTO funcionario(nome_fun, funcao_fun, imagem_fun, descricao_fun, face_fun, insta_fun) 
@@ -59,7 +59,7 @@
             }
             else{
                 header('Location: ../interface/editar_pagina2.php');
-                
+                $_SESSION['login'][2] = "ERRO AO ATUALIZAR";
             }
         }
     }

@@ -48,7 +48,7 @@ include ('conexao.php');
         if(mysqli_query($conexao, $sql_np)){
 
             if(mysqli_query($conexao, $sql_nt)){
-                unlink("../../imagem/".$$dados_mostrar_nt['imagem_no']);
+                unlink("../../imagem/".$dados_mostrar_nt['imagem_no']);
                 header('Location: ../interface/editar_pagina.php');
             }
             else{
