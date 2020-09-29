@@ -13,6 +13,12 @@ elseif(isset($_GET['id_sm'])){
   $result_sm = mysqli_query($conexao, $sql_sm);
   $dados_sm = mysqli_fetch_array($result_sm);
 }
+elseif(isset($_GET['id_cp'])){
+  $id_cp = mysqli_escape_string($conexao, $_GET['id_cp']);
+  $sql_cp = "SELECT * from card_pagina where id_cp = '$id_cp'";
+  $result_cp = mysqli_query($conexao, $sql_cp);
+  $dados_cp = mysqli_fetch_array($result_cp);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -99,7 +105,7 @@ else if(!empty($_GET['id_sm'])){
   </div>
   <div class="form-group">
     <label >Imagem</label>
-    <input type="file" class="" name="imagem_no" id="real-file" name="imagem4_sm" onchange="previewImagem()">
+    <input type="file" class="" name="imagem4_sm" id="real-file" name="imagem4_sm" onchange="previewImagem()">
   </div>
   <input type="hidden" name="id_sm" value="<?php echo $dados_sm['id_sm'];?>"> 
   <button type="submit" class="btn btn-primary" name="editar_informativo_sele">Enviar</button>
@@ -108,11 +114,46 @@ else if(!empty($_GET['id_sm'])){
 
 
 <?php
-
-
 } 
+else if(!empty($_GET['id_cp'])){
+
 ?>
 
+
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/editar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+    
+  <div class="form-group">
+  <label>Titulo Card</label>
+  <input type="text" class="form-control" name="titulo_painel_cp" value="<?php echo $dados_cp['titulo_painel_cp']; ?>">
+  </div>
+  <div class="form-group">
+  <label>Titulo</label>
+  <input type="text" class="form-control" name="titulo_cp" value="<?php echo $dados_cp['titulo_cp']; ?>">
+  </div>
+  <div class="form-group">
+  <label>Descrição</label>
+  <input type="text" class="form-control" name="desc_cp" value="<?php echo $dados_cp['desc_cp']; ?>">
+  </div>
+  <div class="form-group">
+  <label>Link</label>
+  <input type="text" class="form-control" name="link_cp" value="<?php echo $dados_cp['link_cp']; ?>">
+  </div>
+  <div class="form-group">
+    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_cp['imagem_cp'].'">'?>
+  </div>
+  <div class="form-group">
+    <label >Imagem</label>
+    <input type="file" class="" name="imagem_cp" id="real-file" onchange="previewImagem()">
+  </div>
+  <input type="hidden" name="id_cp" value="<?php echo $dados_cp['id_cp'];?>"> 
+  <button type="submit" class="btn btn-primary" name="editar_informativo_cp">Enviar</button>
+</form>
+</div>
+
+<?php
+}
+?>
 
 <div style="margin-top:5px;">
 </div>

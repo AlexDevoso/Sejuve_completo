@@ -6,6 +6,12 @@ if(isset($_GET['id_fun'])){
     $result_fun= mysqli_query($conexao, $sql_fun);
     $dados_fun = mysqli_fetch_array($result_fun);
 }
+elseif(isset($_GET['id_sm'])){
+    $id_sm = mysqli_escape_string($conexao, $_GET['id_sm']);
+    $sql_sele = "SELECT * from selecoes_municipais where id_sm = '$id_sm'";
+    $result_sele = mysqli_query($conexao, $sql_sele);
+    $dados_sele = mysqli_fetch_array($result_sele);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +47,9 @@ if(isset($_GET['id_fun'])){
 
 
 
-
+<?php
+if(!empty($id_fun)){
+?>
 <div class="w-50 text-white" style="margin:auto; margin-top:100px;">
 <form action="../funcoes/editar_sobre_sql.php" method="POST" enctype="multipart/form-data">
   <div class="form-row">
@@ -81,15 +89,88 @@ if(isset($_GET['id_fun'])){
 </div>
 
 
+<?php
+}
+elseif(!empty($id_sm)){
+?>
 
 
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/editar_sobre_sql.php" method="POST" enctype="multipart/form-data">
+  
+    <div class="form-group">
+      <label >Titulo 1</label>
+      <input type="text" class="form-control" id="inputEmail4" name="titul_sm1" value="<?php echo $dados_sele['titul_sm1']; ?>">
+    </div>
 
+  <div class="form-group">
+    <label>Descricao 1</label>
+    <input type="text" class="form-control " id="inputAddress" name="desc1_sm" value="<?php echo $dados_sele['desc1_sm'];?>">
+  </div>
+  <div class="form-group">
+    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_sele['imagem1_sm'].'">'?>
+  </div>
+  <div class="form-group">
+    <label >Imagem 1</label>
+    <input type="file" class="" name="imagem1_sm" id="real-file"  onchange="previewImagem()">
+  </div>
+  <input type="hidden" name="id_sm" value="<?php echo $dados_sele['id_sm'];?>"> 
+  <button type="submit" class="btn btn-primary" name="editar_sobre_sele1">Enviar</button>
+  </form>
+</div>
 
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/editar_sobre_sql.php" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label >Titulo 2</label>
+      <input type="text" class="form-control" id="inputEmail4" name="titul_sm2" value="<?php echo $dados_sele['titul_sm2']; ?>">
+    </div>
 
+  <div class="form-group">
+    <label>Descricao 2</label>
+    <input type="text" class="form-control " id="inputAddress" name="desc2_sm" value="<?php echo $dados_sele['desc2_sm'];?>">
+  </div>
+  <div class="form-group">
+    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_sele['imagem2_sm'].'">'?>
+  </div>
+  <div class="form-group">
+    <label >Imagem 2</label>
+    <input type="file" class="" name="imagem2_sm" id="real-file"  onchange="previewImagem()">
+  </div>
+  <input type="hidden" name="id_sm" value="<?php echo $dados_sele['id_sm'];?>"> 
+  <button type="submit" class="btn btn-primary" name="editar_sobre_sele2">Enviar</button>
+  </form>
 
+</div>
 
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/editar_sobre_sql.php" method="POST" enctype="multipart/form-data">
+  
+    <div class="form-group">
+      <label >Titulo 3</label>
+      <input type="text" class="form-control" id="inputEmail4" name="titul_sm3" value="<?php echo $dados_sele['titul_sm3']; ?>">
+    </div>
 
+  <div class="form-group">
+    <label>Descricao 3</label>
+    <input type="text" class="form-control " id="inputAddress" name="desc3_sm" value="<?php echo $dados_sele['desc3_sm'];?>">
+  </div>
+  <div class="form-group">
+    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_sele['imagem3_sm'].'">'?>
+  </div>
+  <div class="form-group">
+    <label >Imagem 3</label>
+    <input type="file" class="" name="imagem3_sm" id="real-file"  onchange="previewImagem()">
+  </div>
+  <input type="hidden" name="id_sm" value="<?php echo $dados_sele['id_sm'];?>"> 
+  <button type="submit" class="btn btn-primary" name="editar_sobre_sele3">Enviar</button>
 
+  </form>
+</div>
+
+<?php
+}
+?>
 
 <div style="margin-top:5px;">
 </div>

@@ -9,7 +9,9 @@ include "../funcoes/conexao.php";
     elseif(isset($_GET['id_sm'])){
       $id_sm = $_GET['id_sm'];
     }
-    
+    elseif(isset($_GET['id_cp'])){
+      $id_cp = $_GET['id_cp'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -123,9 +125,44 @@ elseif(!empty($id_sm)){
 
 <?php
 }
-else{
+elseif(!empty($id_cp)){
 ?>
 
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/adicionar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+    
+  <div class="form-group">
+  <label>Titulo Card</label>
+  <input type="text" class="form-control" name="titulo_painel_cp" >
+  </div>
+  <div class="form-group">
+  <label>Titulo</label>
+  <input type="text" class="form-control" name="titulo_cp">
+  </div>
+  <div class="form-group">
+  <label>Descrição</label>
+  <input type="text" class="form-control" name="desc_cp" >
+  </div>
+  <div class="form-group">
+  <label>Link</label>
+  <input type="text" class="form-control" name="link_cp" >
+  </div>
+  <div class="form-group">
+    <img width = "300" id="pre_img">
+  </div>
+  <div class="form-group">
+    <label >Imagem</label>
+    <input type="file" class="" name="imagem_cp" id="real-file" onchange="previewImagem()">
+  </div>
+  <input type="hidden" name="id_cp" value="<?php echo $dados_cp['id_cp'];?>"> 
+  <button type="submit" class="btn btn-primary" name="adicionar_informativo_cp">Enviar</button>
+</form>
+</div>
+
+<?php
+}
+else{
+?>
 <div class="w-50 text-white" style="margin:auto; margin-top:100px;">
 <form action="../funcoes/adicionar_informativo_sql.php" method="POST" enctype="multipart/form-data">
 
