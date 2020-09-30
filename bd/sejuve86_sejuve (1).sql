@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.9.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 21-Set-2020 às 17:16
--- Versão do servidor: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Host: localhost:3306
+-- Tempo de geração: 30-Set-2020 às 12:30
+-- Versão do servidor: 5.7.23-23
+-- versão do PHP: 7.3.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sejuve86_sejuve`
+-- Banco de dados: `sejuve86_sejuve`
 --
 
 -- --------------------------------------------------------
@@ -122,6 +122,29 @@ CREATE TABLE `atleta` (
 INSERT INTO `atleta` (`atletaid`, `nome_atleta`, `data_nascimento_atleta`, `rg_atleta`, `naturalidade_atleta`, `equipeid_fk`, `imagem_rg`) VALUES
 (25, 'Alek', '2020-01-01', '1234567890', 'Brasil', 208, 'Alek.png'),
 (26, 'andre castro', '2005-02-05', '952.473.145-4', 'pentecoste', 189, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `card_pagina`
+--
+
+CREATE TABLE `card_pagina` (
+  `id_cp` int(11) NOT NULL,
+  `titulo_cp` varchar(100) DEFAULT NULL,
+  `desc_cp` varchar(500) DEFAULT NULL,
+  `imagem_cp` varchar(100) DEFAULT NULL,
+  `link_cp` varchar(200) DEFAULT NULL,
+  `titulo_painel_cp` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `card_pagina`
+--
+
+INSERT INTO `card_pagina` (`id_cp`, `titulo_cp`, `desc_cp`, `imagem_cp`, `link_cp`, `titulo_painel_cp`) VALUES
+(1, 'conheça o time da sejuve', '', 'sejuve.jpg', 'http://sejuvecompeticoes.com/equipe.php', 'Time Sejuve'),
+(2, 'Deixe suas sugestões e ajude a construir um Pentecoste melhor.', '', 'falajovem.jpeg', 'https://forms.gle/XrPumZZDZYYDt4zG6', 'Fala Jovem.');
 
 -- --------------------------------------------------------
 
@@ -302,51 +325,6 @@ INSERT INTO `evento` (`idevento`, `nomeevento`, `logoevento`, `contadorinput`, `
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `events`
---
-
-CREATE TABLE `events` (
-  `id` int(11) NOT NULL,
-  `title` varchar(100) DEFAULT NULL,
-  `color` varchar(100) DEFAULT NULL,
-  `start` varchar(50) DEFAULT NULL,
-  `end` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `events`
---
-
-INSERT INTO `events` (`id`, `title`, `color`, `start`, `end`) VALUES
-(1, 'Tutorial PagSeguro', '#FFD700', '2020-07-07T00:00:00-05:00', '2020-07-08T00:00:00-05:00');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `frequencia_fun`
---
-
-CREATE TABLE `frequencia_fun` (
-  `id_ff` int(11) NOT NULL,
-  `mes_ff` int(2) DEFAULT NULL,
-  `dia_ff` int(2) DEFAULT NULL,
-  `ano_ff` int(4) DEFAULT NULL,
-  `horario_inicial_ff` varchar(50) DEFAULT NULL,
-  `horario_final_ff` varchar(50) DEFAULT NULL,
-  `fk_id` int(11) DEFAULT NULL,
-  `dia_nome_ff` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `frequencia_fun`
---
-
-INSERT INTO `frequencia_fun` (`id_ff`, `mes_ff`, `dia_ff`, `ano_ff`, `horario_inicial_ff`, `horario_final_ff`, `fk_id`, `dia_nome_ff`) VALUES
-(21, 8, 20, 2020, '08:00', '14:00', 3, 'Thursday');
-
--- --------------------------------------------------------
-
---
 -- Estrutura da tabela `funcionario`
 --
 
@@ -358,19 +336,18 @@ CREATE TABLE `funcionario` (
   `descricao_fun` varchar(500) DEFAULT NULL,
   `imagem_fun` varchar(50) DEFAULT NULL,
   `face_fun` varchar(500) DEFAULT NULL,
-  `insta_fun` varchar(500) DEFAULT NULL,
-  `login_fun` varchar(50) DEFAULT NULL,
-  `senha_fun` varchar(50) DEFAULT NULL
+  `insta_fun` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `funcionario`
 --
 
-INSERT INTO `funcionario` (`id_fun`, `nome_fun`, `datanascimento_fun`, `funcao_fun`, `descricao_fun`, `imagem_fun`, `face_fun`, `insta_fun`, `login_fun`, `senha_fun`) VALUES
-(1, 'André Costa', '28/02/1990', 'Monitor de Esportes', '', 'andre.costaoficial.jpg', '', '', 'ac2020', '6749cd799b426a38923e1ebd78f68605'),
-(2, 'Abimaelson Jones', '25/06/1995', 'Monitor de Esportes', 'Maleson, enfermeiro, professor de muaythai e servidor público.Pratica artes marciais desde os cinco anos de idade. Passou pelo karatê, capoeira e jiu-jitsu. Conheceu o muaythai em 2010, estreou como atleta em 2015,devido a jornada de trabalho, faculdade e a conciliação entre ministra aulas e treinar para competições,teve que se afastar dos ringues.', '', '', '', 'ab2020', 'ad6fbc56dbbbd67c1b965da857e89875'),
-(3, 'Danilo Roney', NULL, '', 'Nascido em Pentecoste, funcionário público concursado na pmp, formado em educação física,atua como professor de educação física da escola maria flor, treinador de futsal masculino efeminino da EEP Alan Pinho Tabosa, desde 2018.', 'eda1e8762e75d33be27ca14b1ead23a5.jpg', '', 'https://www.instagram.com/doniloroney0604/', 'dr2020', 'dd95331caaf11468aacca1c3c423745a');
+INSERT INTO `funcionario` (`id_fun`, `nome_fun`, `datanascimento_fun`, `funcao_fun`, `descricao_fun`, `imagem_fun`, `face_fun`, `insta_fun`) VALUES
+(1, 'André Costa', '28/02/1990', '', 'Licenciado em educação física, monitor de esportes da Sejuve, técnico de handebol a 7 anos do município e da LPHB,\r\nresponsável pela escolinha de handebol que acontece no bairro da Pedreira. Detentor de diversos títulos individuais. \r\nComo atleta: Bi campeão brasileiro adulto de handebol.\r\nComo árbitro nacional: Apitou a final do campeonato brasileiro adulto da primeira divisão.\r\n', 'andre.jpg', 'https://www.facebook.com/alcosta.oficial', 'https://www.instagram.com/andre.costaoficial/'),
+(2, 'Abimaelson Jones', '25/06/1995', '', 'Abimaleson, enfermeiro, professor de muaythai e servidor público.\r\nPratica artes marciais desde os cinco anos de idade. Passou pelo karatê, capoeira e jiu-jitsu. Conheceu o muaythai em 2010, estreou como atleta em 2015,\r\ndevido a jornada de trabalho, faculdade e a conciliação entre ministra aulas e treinar para competições,\r\nteve que se afastar dos ringues.', 'abimaelson.jpg', NULL, NULL),
+(3, 'Danilo Roney', NULL, NULL, '\r\nNascido em Pentecoste, funcionário público concursado na pmp, formado em educação física,\r\natua como professor de educação física da escola maria flor, treinador de futsal masculino e\r\nfeminino da EEEP Alan Pinho Tabosa, desde 2018.', 'danilo.jpg', NULL, 'https://www.instagram.com/doniloroney0604/'),
+(4, 'Fabricio Sales', NULL, NULL, '\r\nNascido em Fortaleza, formado em biologia e educação física, pós graduado em educação física,\r\ntrabalhou como monitor de futsal no projeto mais educação, professor e treinador das equipes masculina\r\ne feminina da escola etelvina de 2015 a 2017. Treinador das seleções de base masculina, seleção feminina\r\nadulta de Pentecoste', 'fabricio.jpg', 'https://www.facebook.com/fabricio.sales.7161', 'https://www.instagram.com/fabricio_sales10_05/');
 
 -- --------------------------------------------------------
 
@@ -465,11 +442,12 @@ CREATE TABLE `noticia` (
 
 INSERT INTO `noticia` (`id_no`, `titulo_no`, `descricao_no`, `link_no`, `imagem_no`) VALUES
 (1, 'Vida Consciente', 'Orientação educativa de utilização da máscara e protocolos sanitários dos órgãos de saúde na praça do CSU, para os praticantes de atividades individuais visando a possível retomada dos esportes coletivos e atividades esportivas em geral no município, de forma consciente, sempre seguindo o parecer da comissão da #Covid-19 em Pentecote o decreto estadual e municipal.', 'https://www.facebook.com/roberth.alves.50/posts/3091776247567020', 'Covid19.jpg'),
-(2, 'Desafio da Caminhada', 'Em meio aos acontecimentos causados pela pandemia do Covid-19 somos desafiados a novas mudanças e sempre nos adaptando para que venhamos a nos possibilitar em uma vida saudável.\r\nA Secretaria de Esporte e Juventude lhe desafia a participar do Desafio da Caminhada.\r\nSe inscreva no link abaixo, instale o aplicativo, faça sua caminhada durante todo o período da competição, envie para um dos contatos disponíveis um print com os dados da sua caminhada e uma foto pessoal constando data. ', 'https://www.facebook.com/sejuve.pentecoste.33/posts/305054044043210', 'caminhada.jpg'),
+(2, 'Desafio da Caminhada', 'Em meio aos acontecimentos causados pela pandemia do Covid-19 somos desafiados a novas mudanças e sempre nos adaptando para que venhamos a nos possibilitar em uma vida saudável.A Secretaria de Esporte e Juventude lhe desafia a participar do Desafio da Caminhada.Se inscreva no link abaixo, instale o aplicativo, faça sua caminhada durante todo o período da competição, envie para um dos contatos disponíveis um print com os dados da sua caminhada e uma foto pessoal constando data. ', 'https://www.facebook.com/sejuve.pentecoste.33/posts/305054044043210', 'caminhada.jpg'),
 (7, 'Fiscalizações nos locais públicos', 'A @sejuvepentas em parceria com a @guardamunicipaldepentecoste tiveram um encontro para alinhar a fiscalização nos espaços públicos afim de garantir o cumprimento dos protocolos das atividades liberadas.', 'https://www.instagram.com/p/CDjZlXfBsX4/', 'sejuvepentas.jpg'),
-(8, 'Esclarecimentos sobre o possível retorno da prática esportiva.', 'Na noite desta quarta-feira (12/08) o secretário Claiton Pinho participou de uma entrevista no programa Toque de Bola respondendo algumas dúvidas sobre a possível data para retorno das atividades físicas e liberações dos espaços esportivos.', 'https://www.facebook.com/sejuve.pentecoste.33/posts/308188960396385', '21b9304d24dd10d47d8bde8dd7eb4d5a.PNG'),
+(8, 'Esclarecimentos sobre o possível retorno da prática esportiva.', 'Na noite desta quarta-feira (12/08) o secretário Claiton Pinho participou de uma entrevista no programa Toque de Bola respondendo algumas dúvidas sobre a possível data para retorno das atividades físicas e liberações dos espaços esportivos.', 'https://www.facebook.com/sejuve.pentecoste.33/posts/308188960396385', 'esclarecimento.PNG'),
 (9, 'Blitz educativa.', 'Dessa vez a Blitz educativa sobre o enfrentamento a Covid-19, foi realizada na XV de Novembro. Trabalho que certamente trará resultados positivos para os esportes de forma geral em nosso município.', 'https://www.facebook.com/photo/?fbid=3097581686986476&set=a.386966818047990', 'blitz.jpg'),
-(10, 'Dia mundial da juventude!', 'Um dia para exclamar o que precisamos lembrar todos os dias: a juventude precisa viver!', 'https://www.facebook.com/sejuve.pentecoste.33/posts/307568810458400', 'juventude.jpg');
+(10, 'Dia mundial da juventude!', 'Um dia para exclamar o que precisamos lembrar todos os dias: a juventude precisa viver!', 'https://www.facebook.com/sejuve.pentecoste.33/posts/307568810458400', 'juventude.jpg'),
+(13, 'Comunicado', 'Em virtude da legislação eleitoral,\r\nas publicações em nossas páginas oficiais\r\nnas redes sociais serão suspensas a partir de\r\n15 de agosto de 2020 até o fim do período eleitoral', 'https://www.instagram.com/p/CD4wmnHB6Vu/', 'comunicado.jpg');
 
 -- --------------------------------------------------------
 
@@ -487,12 +465,32 @@ CREATE TABLE `noticia_painel` (
 --
 
 INSERT INTO `noticia_painel` (`id_np`, `fk_noticia`) VALUES
-(37, 1),
-(38, 2),
-(32, 7),
-(33, 8),
-(34, 9),
-(16, 10);
+(2, 2),
+(3, 7),
+(4, 8),
+(5, 9),
+(6, 10),
+(1, 13);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `patrocinadores`
+--
+
+CREATE TABLE `patrocinadores` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `foto` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `patrocinadores`
+--
+
+INSERT INTO `patrocinadores` (`id`, `nome`, `foto`) VALUES
+(1, 'JOSE DENILSON ALVES SALDANHA', '5dd2bf746045999284e2ddb54bed7dd1.gif'),
+(2, '', '692f5745acceb89ab767898b2f76a4ea.gif');
 
 -- --------------------------------------------------------
 
@@ -526,9 +524,9 @@ CREATE TABLE `selecoes_municipais` (
 --
 
 INSERT INTO `selecoes_municipais` (`id_sm`, `categoria_sm`, `modalidade_sm`, `naipe_sm`, `imagem1_sm`, `imagem2_sm`, `imagem3_sm`, `imagem4_sm`, `desc1_sm`, `desc2_sm`, `desc3_sm`, `desc4_sm`, `titul_sm1`, `titul_sm2`, `titul_sm3`, `titul_sm4`, `insta_sele`, `face_sele`) VALUES
-(5, 'adulto', 'futsal', 'masculino', NULL, NULL, NULL, 'a1f1c51e2893922bb04b76fafb98e600.jpg', NULL, NULL, NULL, 'Futsal Masculino Representante de Pentecoste', NULL, NULL, NULL, '', NULL, NULL),
-(8, 'adulto', 'Handebol', 'masculino', NULL, NULL, NULL, '539416a5273ccc2405a41682790c6681.jpg', NULL, NULL, NULL, 'Handebol Masculino Representante de Pentecoste', NULL, NULL, NULL, '', NULL, NULL),
-(9, 'adulto', 'futsal', 'Feminino', NULL, NULL, NULL, 'ad0335c9f563bd9999e96b20abcc9c5f.jpg', NULL, NULL, NULL, 'Futsal Feminino Representante de Pentecoste', NULL, NULL, NULL, '', NULL, NULL);
+(1, 'adulto', 'Futsal', 'masculino', 'futsal_pent.jpg', 'tecnico_futsal.jpg', 'pentecostefutsal.jpg', 'futsal_pent.jpg', '\"Seleção de Futsal de Pentecoste é Campeão da #Copa @redecucaoficial de Futsal.\r\n#tudonoseutempo\r\n#tudonotempodedeus\"', 'Atribuições do nosso técnico de futsal masculino: Danilo Roney', 'Segue abaixo os horários de treino.', 'Futsal Masculino representante de Pentecoste.', 'futsal masculino', 'Ténico do futsal masculino', 'Treinos', 'futsal', 'https://www.instagram.com/pentecostefutsal/', NULL),
+(2, 'adulto', 'handebol', 'masculino', 'handebol_pent.jpg', 'handebol_insta.PNG', 'pentecostehandebol.jpg', 'handebol_pent.jpg', '\"Seleção de Handebol de Pentecoste, participou da supercopa cuca, tendo vários atletas eleitos como melhores de diversas partidas.\"', 'Acompanhe o handebol masculino de Pentecoste pelo o instagram.', 'Segue abaixo os horários de treino.', 'Handebol Masculino representante de Pentecoste.', 'handebol', 'handebol', 'Treinos', 'handebol', 'https://www.instagram.com/lphb.oficial/', NULL),
+(3, 'adulto', 'futsal', 'feminino', 'futsal_fem_pent.jpg', 'futsal_insta.PNG', 'pentecostefutsalfeminino.jpg', 'futsal_fem_pent.jpg', '\"Seleção de pentecoste participou de um torneio na serrota, ganhamos o título campeão. Parabéns à todos envolvidos e principalmente ao nosso treinador @fabricio_sales10_05 pelo compromisso e dedicação a equipe \r\nVitoria 7x0.\r\nObrigada pelo apoio\r\n@sejuvepentas\r\n@prefeituradepentecoste .\"', 'Acompanhe o futsal feminino de Pentecoste pelo o instagram.', 'Segue abaixo os horários de treino.', 'Futsal representando de Pentecoste.', 'futsal', 'futsal', 'Treinos', 'futsal', 'https://www.instagram.com/pentecostefutsalfeminino/', NULL);
 
 -- --------------------------------------------------------
 
@@ -551,11 +549,11 @@ INSERT INTO `usuario` (`usuario_id`, `usuario`, `senha`) VALUES
 (3, 'Denilson', '200820e3227815ed1756a6b531e7e0d2');
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `aluno`
+-- Índices para tabela `aluno`
 --
 ALTER TABLE `aluno`
   ADD PRIMARY KEY (`alunoid`),
@@ -564,21 +562,27 @@ ALTER TABLE `aluno`
   ADD KEY `escola_id_fk` (`escola_id_fk`);
 
 --
--- Indexes for table `atleta`
+-- Índices para tabela `atleta`
 --
 ALTER TABLE `atleta`
   ADD PRIMARY KEY (`atletaid`),
   ADD KEY `equipeid_fk` (`equipeid_fk`);
 
 --
--- Indexes for table `comissao_tecnica`
+-- Índices para tabela `card_pagina`
+--
+ALTER TABLE `card_pagina`
+  ADD PRIMARY KEY (`id_cp`);
+
+--
+-- Índices para tabela `comissao_tecnica`
 --
 ALTER TABLE `comissao_tecnica`
   ADD PRIMARY KEY (`comissao_tecnicaid`),
   ADD KEY `equipeid_fk` (`equipeid_fk`);
 
 --
--- Indexes for table `comissao_tecnica_escolares`
+-- Índices para tabela `comissao_tecnica_escolares`
 --
 ALTER TABLE `comissao_tecnica_escolares`
   ADD PRIMARY KEY (`id_tecnico`),
@@ -586,14 +590,14 @@ ALTER TABLE `comissao_tecnica_escolares`
   ADD KEY `modalidade_coletivaid_fk` (`modalidade_coletivaid_fk`);
 
 --
--- Indexes for table `equipe`
+-- Índices para tabela `equipe`
 --
 ALTER TABLE `equipe`
   ADD PRIMARY KEY (`equipeid`),
   ADD KEY `atletaid_fk` (`atletaid_fk`);
 
 --
--- Indexes for table `equipe_evento`
+-- Índices para tabela `equipe_evento`
 --
 ALTER TABLE `equipe_evento`
   ADD PRIMARY KEY (`equipe_evento_id`),
@@ -601,175 +605,186 @@ ALTER TABLE `equipe_evento`
   ADD KEY `equipeid_fk` (`equipeid_fk`);
 
 --
--- Indexes for table `escola`
+-- Índices para tabela `escola`
 --
 ALTER TABLE `escola`
   ADD PRIMARY KEY (`escola_id`);
 
 --
--- Indexes for table `evento`
+-- Índices para tabela `evento`
 --
 ALTER TABLE `evento`
   ADD PRIMARY KEY (`idevento`);
 
 --
--- Indexes for table `events`
---
-ALTER TABLE `events`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `frequencia_fun`
---
-ALTER TABLE `frequencia_fun`
-  ADD PRIMARY KEY (`id_ff`),
-  ADD KEY `fk_id` (`fk_id`);
-
---
--- Indexes for table `funcionario`
+-- Índices para tabela `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`id_fun`);
 
 --
--- Indexes for table `logo`
+-- Índices para tabela `logo`
 --
 ALTER TABLE `logo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `modalidade_coletiva`
+-- Índices para tabela `modalidade_coletiva`
 --
 ALTER TABLE `modalidade_coletiva`
   ADD PRIMARY KEY (`modalidade_coletivaid`);
 
 --
--- Indexes for table `modalidade_individual`
+-- Índices para tabela `modalidade_individual`
 --
 ALTER TABLE `modalidade_individual`
   ADD PRIMARY KEY (`modalidade_individualid`);
 
 --
--- Indexes for table `noticia`
+-- Índices para tabela `noticia`
 --
 ALTER TABLE `noticia`
   ADD PRIMARY KEY (`id_no`);
 
 --
--- Indexes for table `noticia_painel`
+-- Índices para tabela `noticia_painel`
 --
 ALTER TABLE `noticia_painel`
   ADD PRIMARY KEY (`id_np`),
   ADD KEY `fk_noiticia` (`fk_noticia`);
 
 --
--- Indexes for table `selecoes_municipais`
+-- Índices para tabela `patrocinadores`
+--
+ALTER TABLE `patrocinadores`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `selecoes_municipais`
 --
 ALTER TABLE `selecoes_municipais`
   ADD PRIMARY KEY (`id_sm`);
 
 --
--- Indexes for table `usuario`
+-- Índices para tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`usuario_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `aluno`
+-- AUTO_INCREMENT de tabela `aluno`
 --
 ALTER TABLE `aluno`
   MODIFY `alunoid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+
 --
--- AUTO_INCREMENT for table `atleta`
+-- AUTO_INCREMENT de tabela `atleta`
 --
 ALTER TABLE `atleta`
   MODIFY `atletaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
 --
--- AUTO_INCREMENT for table `comissao_tecnica`
+-- AUTO_INCREMENT de tabela `card_pagina`
+--
+ALTER TABLE `card_pagina`
+  MODIFY `id_cp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `comissao_tecnica`
 --
 ALTER TABLE `comissao_tecnica`
   MODIFY `comissao_tecnicaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
 --
--- AUTO_INCREMENT for table `comissao_tecnica_escolares`
+-- AUTO_INCREMENT de tabela `comissao_tecnica_escolares`
 --
 ALTER TABLE `comissao_tecnica_escolares`
   MODIFY `id_tecnico` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
--- AUTO_INCREMENT for table `equipe`
+-- AUTO_INCREMENT de tabela `equipe`
 --
 ALTER TABLE `equipe`
   MODIFY `equipeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=209;
+
 --
--- AUTO_INCREMENT for table `equipe_evento`
+-- AUTO_INCREMENT de tabela `equipe_evento`
 --
 ALTER TABLE `equipe_evento`
   MODIFY `equipe_evento_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
 --
--- AUTO_INCREMENT for table `escola`
+-- AUTO_INCREMENT de tabela `escola`
 --
 ALTER TABLE `escola`
   MODIFY `escola_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
 --
--- AUTO_INCREMENT for table `evento`
+-- AUTO_INCREMENT de tabela `evento`
 --
 ALTER TABLE `evento`
   MODIFY `idevento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
--- AUTO_INCREMENT for table `events`
---
-ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `frequencia_fun`
---
-ALTER TABLE `frequencia_fun`
-  MODIFY `id_ff` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
---
--- AUTO_INCREMENT for table `funcionario`
+-- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `id_fun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_fun` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
--- AUTO_INCREMENT for table `logo`
+-- AUTO_INCREMENT de tabela `logo`
 --
 ALTER TABLE `logo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
--- AUTO_INCREMENT for table `modalidade_coletiva`
+-- AUTO_INCREMENT de tabela `modalidade_coletiva`
 --
 ALTER TABLE `modalidade_coletiva`
   MODIFY `modalidade_coletivaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
--- AUTO_INCREMENT for table `modalidade_individual`
+-- AUTO_INCREMENT de tabela `modalidade_individual`
 --
 ALTER TABLE `modalidade_individual`
   MODIFY `modalidade_individualid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 --
--- AUTO_INCREMENT for table `noticia`
+-- AUTO_INCREMENT de tabela `noticia`
 --
 ALTER TABLE `noticia`
-  MODIFY `id_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
--- AUTO_INCREMENT for table `noticia_painel`
+-- AUTO_INCREMENT de tabela `noticia_painel`
 --
 ALTER TABLE `noticia_painel`
-  MODIFY `id_np` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_np` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
--- AUTO_INCREMENT for table `selecoes_municipais`
+-- AUTO_INCREMENT de tabela `patrocinadores`
+--
+ALTER TABLE `patrocinadores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `selecoes_municipais`
 --
 ALTER TABLE `selecoes_municipais`
-  MODIFY `id_sm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_sm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `usuario_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
@@ -812,12 +827,6 @@ ALTER TABLE `equipe`
 ALTER TABLE `equipe_evento`
   ADD CONSTRAINT `equipe_evento_ibfk_1` FOREIGN KEY (`idevento_fk`) REFERENCES `evento` (`idevento`),
   ADD CONSTRAINT `equipe_evento_ibfk_2` FOREIGN KEY (`equipeid_fk`) REFERENCES `equipe` (`equipeid`) ON DELETE CASCADE;
-
---
--- Limitadores para a tabela `frequencia_fun`
---
-ALTER TABLE `frequencia_fun`
-  ADD CONSTRAINT `frequencia_fun_ibfk_1` FOREIGN KEY (`fk_id`) REFERENCES `funcionario` (`id_fun`);
 
 --
 -- Limitadores para a tabela `noticia_painel`
