@@ -1,5 +1,6 @@
 <?php
-    include('conexao.php');
+    session_start();
+    include ('conexao.php');
     if(isset($_POST['adicionar_sobre'])){
         $nome_fun = mysqli_escape_string($conexao, $_POST['nome_fun']);        
         $funcao_fun = mysqli_escape_string($conexao, $_POST['funcao_fun']);
@@ -19,6 +20,7 @@
         //verifica se o arquivo é uma imagem
         if (!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $imagem_fun['type'])) {
             $error[1] = "ISSO NÃO É uma imagem";
+            $_SESSION['login'][2] = $erro[1];
             header('Location: ../interface/editar_pagina1.php');
         }
         //pega as dimensões da imagem
@@ -27,16 +29,21 @@
         //verifica se a largura da imagem é maior que largura permitida
         if ($dimensões[0] > $lagura) {
             $error[2] = "A largura da imagem não deve ultrapassar " . $lagura . "pixels";
+            $_SESSION['login'][2] = $erro[2];
+
             header('Location: ../interface/editar_pagina2.php');
         }
         //verifica se a altura da imagem é maior que a altura permitida
         if ($dimensões[0] > $altura) {
             $error[3] = "A altura da imagem não deve ultrapassar " . $altura . " pixels";
+            $_SESSION['login'][2] = $erro[3];
+
             header('Location: ../interface/editar_pagina3.php');
         }
         //verifica o tamanho em bytes da imagem
         if ($imagem_fun["size"] > $tamanho) {
             $error[4] = "A imagem deve ter no máximo " . $tamanho . " bytes";
+            $_SESSION['login'][2] = $error[4];
             header('Location: ../interface/editar_pagina4.php');
         }
         //se não houver erro
@@ -55,7 +62,7 @@
             values('$nome_fun', '$funcao_fun', '$nome_imagem', '$descricao_fun', '$face_fun', '$insta_fun')";
             if (mysqli_query($conexao, $sql)) {
                 header('Location: ../interface/editar_pagina.php');
-                $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+                $_SESSION['login'][1] = "ADICIONADO COM SUCESSO";
             }
             else{
                 header('Location: ../interface/editar_pagina2.php');
@@ -70,7 +77,7 @@
         
         if (mysqli_query($conexao, $sql)) {
             header('Location: ../interface/editar_pagina.php');
-            $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+            $_SESSION['login'][1] = "ADICIONADO COM SUCESSO";
         }
         else{
              header('Location: ../interface/editar_pagina.php');

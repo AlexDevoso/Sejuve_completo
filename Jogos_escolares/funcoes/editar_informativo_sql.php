@@ -62,24 +62,28 @@ if(isset($_POST['editar_informativo'])){
             $sql = "UPDATE noticia set titulo_no = '$titulo_no', imagem_no = '$nome_imagem', descricao_no = '$descricao_no', link_no = '$link_no' where id_no = '$id_no'";
             if (mysqli_query($conexao, $sql)) {
                 unlink("../../imagem/".$dados_imagem_no['imagem_no']);
-                header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+                header('Location: ../interface/editar_pagina.php');
+                
             }
             else{
-                header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][2] = " ERRO AO ATUALIZAR";
+                header('Location: ../interface/editar_pagina.php');
+                
             }
         }
     }
     else{
         $sql = "UPDATE noticia set titulo_no = '$titulo_no', descricao_no = '$descricao_no', link_no = '$link_no' where id_no = '$id_no'";
         if (mysqli_query($conexao, $sql)) {
-            header('Location: ../interface/editar_pagina.php');
             $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+            header('Location: ../interface/editar_pagina.php');
+            
         }
         else{
-             header('Location: ../interface/editar_pagina.php');
             $_SESSION['login'][2] = " ERRO AO ATUALIZAR";
+            header('Location: ../interface/editar_pagina.php');
+            
         }
     } 
 }
@@ -149,24 +153,28 @@ elseif(isset($_POST['editar_informativo_sele'])){
             $sql_sele = "UPDATE selecoes_municipais set desc4_sm = '$desc4_sm', imagem4_sm = '$nome_imagem' where id_sm = '$id_sm'";
             if (mysqli_query($conexao, $sql_sele)) {
                 unlink("../../imagem/".$dados_imagem_sm['imagem4_sm']);
-                header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+                header('Location: ../interface/editar_pagina.php');
+                
             }
             else{
-                header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][2] = "ERRO AO ATUALIZAR";
+                header('Location: ../interface/editar_pagina.php');
+                
             }
         }
     }
     else{
         $sql_sele = "UPDATE selecoes_municipais set desc4_sm = '$desc4_sm' where id_sm = '$id_sm'";
         if (mysqli_query($conexao, $sql_sele)) {
-            header('Location: ../interface/editar_pagina.php');
             $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+            header('Location: ../interface/editar_pagina.php');
+            
         }
         else{
-             header('Location: ../interface/editar_pagina.php');
             $_SESSION['login'][2] = " ERRO AO ATUALIZAR";
+            header('Location: ../interface/editar_pagina.php');
+            
         }
     } 
 }//final função editar seleção
@@ -236,10 +244,12 @@ elseif(isset($_POST['editar_informativo_cp'])){
             link_cp = '$link_cp', imagem_cp = '$nome_imagem' where id_cp = '$id_cp'";
             if (mysqli_query($conexao, $sql_cp)) {
                 unlink("../../imagem/".$dados_imagem_cp['imagem_cp']);
-                header('Location: ../interface/editar_pagina.php');
                 $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+                header('Location: ../interface/editar_pagina.php');
+                
             }
             else{
+                $_SESSION['login'][2] = "ERRO AO ATUALIZAR";
                 header('Location: ../interface/editar_pagina.php');
                 
             }
@@ -249,12 +259,14 @@ elseif(isset($_POST['editar_informativo_cp'])){
         $sql_cp = "UPDATE card_pagina set titulo_painel_cp = '$titulo_painel_cp', titulo_cp = '$titulo_cp', desc_cp = '$desc_cp',
             link_cp = '$link_cp' where id_cp = '$id_cp'";
         if (mysqli_query($conexao, $sql_cp)) {
-            header('Location: ../interface/editar_pagina.php');
             $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
+            header('Location: ../interface/editar_pagina.php');
+            
         }
         else{
-            header('Location: ../interface/editar_pagina.php');
             $_SESSION['login'][2] = " ERRO AO ATUALIZADO";
+            header('Location: ../interface/editar_pagina.php');
+            
         }
     } 
 }

@@ -7,10 +7,14 @@ include ('conexao.php');
         $sql = "DELETE from noticia_painel where fk_noticia = '$id_no'";
         
         if(mysqli_query($conexao, $sql)){
+            $_SESSION['login'][1] = "DELETADO COM SUCESSO";
             header('Location: ../interface/editar_pagina.php');
+            
         }
         else{
+            $_SESSION['login'][2] = "ERRO AO DELETAR";
             header('Location: editar_pagina.php');
+            
         }
 
     }
@@ -27,10 +31,14 @@ include ('conexao.php');
         $sql_selecoes = "UPDATE selecoes_municipais set imagem4_sm = null, desc4_sm = null, titul_sm4 = null where id_sm = '$id_sm'";
         if(mysqli_query($conexao, $sql_selecoes)){
             unlink("../../imagem/".$dados_mostrar_img['imagem4_sm']);
+            $_SESSION['login'][1] = "DELETADO COM SUCESSO";
             header('Location: ../interface/editar_pagina.php');
+            
         }
         else{
+            $_SESSION['login'][2] = "ERRO AO DELETAR";
             header('Location: ../interface/editar_pagina.php');
+            
         }
     }
 
@@ -49,15 +57,18 @@ include ('conexao.php');
 
             if(mysqli_query($conexao, $sql_nt)){
                 unlink("../../imagem/".$dados_mostrar_nt['imagem_no']);
+                $_SESSION['login'][1] = "DELETADO COM SUCESSO";
                 header('Location: ../interface/editar_pagina.php');
             }
             else{
+                $_SESSION['login'][2] = "ERRO AO DELETAR";
                 header('Location: ../interface/editar_pagina.php');
             }
 
         
         }
         else{
+            $_SESSION['login'][2] = "ERRO AO DELETAR";
             header('Location ../inferface/editar_pagina.php');
         }
 
@@ -74,38 +85,14 @@ include ('conexao.php');
         $sql_delete = "DELETE from card_pagina where id_cp = '$id_cp'";
 
         if(mysqli_query($conexao, $sql_delete)){
-           
+           $_SESSION['login'][1] = "DELETADO COM SUCESSO";
             header("Location: ../interface/editar_pagina.php");
         }
         else{
+            $_SEESION['login'][2] = "ERRO AO DELETAR";
             header("Location: ../interface/editar_pagina.php");
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ?>
