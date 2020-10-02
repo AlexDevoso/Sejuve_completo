@@ -25,8 +25,15 @@
         }
     }
     else{
-        $_SESSION['login'][2] = "ERRO AO DELETAR";
-        header('Location: ../interface/editar_pagina.php');
+        if(mysqli_query($conexao, $sql_delete)){
+            unlink("../../imagem/".$dados_img['imagem_fun']);
+            $_SESSION['login'][1] = "DELETADO COM SUCESSO";
+            header('Location: ../interface/editar_pagina.php');
+        }
+        else{
+            $_SESSION['login'][2] = "ERRO AO DELETAR";
+            header('Location: ../interface/editar_pagina.php');
+        }
     }
     }
 
