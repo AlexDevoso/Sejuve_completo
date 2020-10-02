@@ -64,7 +64,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="eventos.html">Calendário</a>
-          <a class="dropdown-item" href="./noticia.php/">Notícia</a>
+          <a class="dropdown-item" href="#/">Notícia</a>
           <a class="dropdown-item" href="./Jogos_escolares/">Jogos Escolares</a>
           <a class="dropdown-item" href="./Jogos_escolares/interface/jogos.php">Futebol Municipal</a>
         </div>

@@ -66,7 +66,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="eventos.html">Calendário</a>
-          <a class="dropdown-item" href="./noticia.php/">Notícia</a>
+          <a class="dropdown-item" href="./noticia.php">Notícia</a>
           <a class="dropdown-item" href="./Jogos_escolares/">Jogos Escolares</a>
           <a class="dropdown-item" href="./Jogos_escolares/interface/jogos.php">Futebol Municipal</a>
         </div>
@@ -119,10 +119,9 @@
 
 
 <div style="margin-top:20px">
-<div>        
+</div>        
 
-<div style="margin-top:90px;">
-
+<div style="margin-top:500px;">
 </div>
 
 <footer style="position: relative;
