@@ -141,11 +141,17 @@
     }
     ?>
   
+
   
   
   
-  
-  
+  <div class="shadow-lg p-3 mb-5 rounded " style="width: 70%; margin: auto; margin-top: 6%;" id="info">
+  <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Novo Painel</p>
+  </div>
+
+  <div class="form-row text-white w-50 justify-content-center" style="margin:auto;">
+    <a class="btn btn-primary" href="adicionar_informativo.php?id_cp=<?php echo $id;?>">Adicionar</a>
+    </div>
   
 
   <?php
@@ -154,9 +160,6 @@
   <div class="shadow-lg p-3 mb-5 rounded " style="width: 70%; margin: auto; margin-top: 6%;" id="info">
   <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" ><?php echo $dados_cp['titulo_painel_cp'] ?></p>
   </div>
-  <div class="form-row text-white w-50 justify-content-center" style="margin:auto;">
-    <a class="btn btn-primary" href="adicionar_informativo.php?id_cp=<?php echo $id;?>">Adicionar</a>
-    </div>
 
 
   <div class="form-row text-white w-100 justify-content-center" style="margin-left:auto;">
