@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include('conexao.php');
+    include ('conexao.php');
 
     if(isset($_POST['deletar_funcionario'])){
 
@@ -16,14 +16,24 @@
         if(mysqli_query($conexao, $sql_delete_freq)){
         if(mysqli_query($conexao, $sql_delete)){
             unlink("../../imagem/".$dados_img['imagem_fun']);
+            $_SESSION['login'][1] = "DELETADO COM SUCESSO";
             header('Location: ../interface/editar_pagina.php');
         }
         else{
+            $_SESSION['login'][2] = "ERRO AO DELETAR";
             header('Location: ../interface/editar_pagina.php');
         }
     }
     else{
-        header('Location: ../interface/editar_pagina.php');
+        if(mysqli_query($conexao, $sql_delete)){
+            unlink("../../imagem/".$dados_img['imagem_fun']);
+            $_SESSION['login'][1] = "DELETADO COM SUCESSO";
+            header('Location: ../interface/editar_pagina.php');
+        }
+        else{
+            $_SESSION['login'][2] = "ERRO AO DELETAR";
+            header('Location: ../interface/editar_pagina.php');
+        }
     }
     }
 
@@ -49,10 +59,12 @@
             if(!empty($dados_imagens['imagem4_sm'])){
                 unlink('Location: ../../imagem/'.$dados_imagens['imagem4_sm']);       
             }
+            $_SESSION['login'][1] = "DELETADO COM SUCESSO";
             header('Location: ../interface/editar_pagina.php');
             
         }
         else{
+            $_SESSION['login'][2] = "ERRO AO DELETAR";
             header('Location: ../interface/editar_pagina.php');
         }
     }
