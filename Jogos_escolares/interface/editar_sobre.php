@@ -1,5 +1,6 @@
 <?php
 include "../funcoes/conexao.php";
+
 if(isset($_GET['id_fun'])){
     $id_fun = mysqli_escape_string($conexao, $_GET['id_fun']);
     $sql_fun = "SELECT * from funcionario where id_fun = '$id_fun'";
@@ -74,7 +75,9 @@ if(!empty($id_fun)){
   </div>
   <div class="form-group">
     <label >Descricao</label>
-    <input type="text" class="form-control " id="inputAddress" name="descricao_fun" value="<?php echo $dados_fun['descricao_fun'];?>">
+            <textarea type="text" class="form-control" rows="3"  name="descricao_fun" ><?php echo $dados_fun['descricao_fun'];?></textarea>
+
+    
   </div>
   <div class="form-group">
     <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_fun['imagem_fun'].'">'?>
@@ -105,7 +108,9 @@ elseif(!empty($id_sm)){
 
   <div class="form-group">
     <label>Descricao 1</label>
-    <input type="text" class="form-control " id="inputAddress" name="desc1_sm" value="<?php echo $dados_sele['desc1_sm'];?>">
+    <textarea type="text" class="form-control" rows="3"  name="desc1_sm" ><?php echo $dados_sele['desc1_sm'];?></textarea>
+
+    
   </div>
   <div class="form-group">
     <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_sele['imagem1_sm'].'">'?>
@@ -128,7 +133,9 @@ elseif(!empty($id_sm)){
 
   <div class="form-group">
     <label>Descricao 2</label>
-    <input type="text" class="form-control " id="inputAddress" name="desc2_sm" value="<?php echo $dados_sele['desc2_sm'];?>">
+    <textarea type="text" class="form-control" rows="3"  name="desc2_sm" ><?php echo $dados_sele['desc2_sm'];?></textarea>
+
+    
   </div>
   <div class="form-group">
     <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_sele['imagem2_sm'].'">'?>
@@ -153,7 +160,9 @@ elseif(!empty($id_sm)){
 
   <div class="form-group">
     <label>Descricao 3</label>
-    <input type="text" class="form-control " id="inputAddress" name="desc3_sm" value="<?php echo $dados_sele['desc3_sm'];?>">
+        <textarea type="text" class="form-control" rows="3"  name="desc3_sm" ><?php echo $dados_sele['desc3_sm'];?></textarea>
+
+
   </div>
   <div class="form-group">
     <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_sele['imagem3_sm'].'">'?>

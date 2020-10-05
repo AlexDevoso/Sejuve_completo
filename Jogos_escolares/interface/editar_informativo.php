@@ -66,13 +66,14 @@ if(!empty($_GET['id_no'])){
       <input type="text" class="form-control" id="inputEmail4" name="titulo_no" value="<?php echo $dados_no['titulo_no']; ?>">
     </div>
     <div class="form-group col-md-6">
-      <label>Descrição</label>
+      <label>Link</label>
       <input type="text" class="form-control" id="inputPassword4" name="link_no" value="<?php echo $dados_no['link_no']; ?>">
     </div>
   </div>
   <div class="form-group">
-    <label >link</label>
-    <input type="text" class="form-control" id="inputAddress" name="descricao_no" value="<?php echo $dados_no['descricao_no'];?>">
+    <label >Descrição</label>
+
+    <textarea type="text" class="form-control" rows="3"  name="descricao_no" ><?php echo $dados_no['descricao_no'];?></textarea>
   </div>
   <div class="form-group">
     <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_no['imagem_no'].'">'?>
@@ -98,7 +99,9 @@ else if(!empty($_GET['id_sm'])){
  
   <div class="form-group">
   <label>Descrição</label>
-  <input type="text" class="form-control" id="inputPassword4" name="desc4_sm" value="<?php echo $dados_sm['desc4_sm']; ?>">
+      <textarea type="text" class="form-control" rows="3"  name="desc4_sm" ><?php echo $dados_sm['desc4_sm'];?></textarea>
+
+
   </div>
   <div class="form-group">
     <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_sm['imagem4_sm'].'">'?>
@@ -133,7 +136,8 @@ else if(!empty($_GET['id_cp'])){
   </div>
   <div class="form-group">
   <label>Descrição</label>
-  <input type="text" class="form-control" name="desc_cp" value="<?php echo $dados_cp['desc_cp']; ?>">
+        <textarea type="text" class="form-control" rows="3"  name="desc_cp" ><?php echo $dados_cp['desc_cp'];?></textarea>
+
   </div>
   <div class="form-group">
   <label>Link</label>

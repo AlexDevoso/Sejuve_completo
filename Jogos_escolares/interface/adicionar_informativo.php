@@ -1,5 +1,7 @@
 <?php
+
 include "../funcoes/conexao.php";
+
     $sql_noticia = "SELECT * from noticia where not exists(select * from noticia_painel where id_no = fk_noticia)";
     $result_noticia = mysqli_query($conexao, $sql_noticia);
 
@@ -60,12 +62,13 @@ if(!empty($id_no)){
       <input type="text" class="form-control" id="inputEmail4" name="titulo_no" value="<?php echo $dados_no['titulo_no']; ?>">
     </div>
     <div class="form-group col-md-6">
-      <label>Descrição</label>
+      <label>Link</label>
       <input type="text" class="form-control" id="inputPassword4" name="link_no" value="<?php echo $dados_no['link_no']; ?>">
     </div>
   </div>
   <div class="form-group">
-    <label >link</label>
+    <label >Descrição</label>
+    
     <input type="text" class="form-control" id="inputAddress" name="descricao_no" value="<?php echo $dados_no['descricao_no'];?>">
   </div>
   <div class="form-group">
@@ -110,7 +113,9 @@ elseif(!empty($id_sm)){
   </div>
   <div class="form-group">
     <label >Descrição</label>
-    <input type="text" class="form-control" id="inputAddress" name="desc4_sm">
+      <textarea class="form-control" name="desc4_sm" rows="3"></textarea>
+
+  
   </div>
   <div class="form-group">
   <img width = "300" id="pre_img" src="../../imagem/" onchange="previewImagem()">
@@ -141,7 +146,8 @@ elseif(!empty($id_cp)){
   </div>
   <div class="form-group">
   <label>Descrição</label>
-  <input type="text" class="form-control" name="desc_cp" >
+  <textarea class="form-control" name="desc_cp" rows="3"></textarea>
+  
   </div>
   <div class="form-group">
   <label>Link</label>
@@ -172,13 +178,13 @@ else{
       <input type="text" class="form-control" id="inputEmail4" name="titulo_no">
     </div>
     <div class="form-group col-md-6">
-      <label>Descrição</label>
+      <label>Link</label>
       <input type="text" class="form-control" id="inputPassword4" name="link_no">
     </div>
   </div>
   <div class="form-group">
-    <label >link</label>
-    <input type="text" class="form-control" id="inputAddress" name="descricao_no">
+    <label for="exampleFormControlTextarea1">Descrição</label>
+    <textarea class="form-control" name="descricao_no" rows="3"></textarea>
   </div>
   <div class="form-group">
   <img width = "300" id="pre_img">

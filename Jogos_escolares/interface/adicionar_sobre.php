@@ -1,5 +1,6 @@
 <?php
 include "../funcoes/conexao.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +61,9 @@ include "../funcoes/conexao.php";
   </div>
   <div class="form-group">
     <label >Descricao</label>
-    <input type="text" class="form-control " id="inputAddress" name="descricao_fun" >
+        <textarea class="form-control" name="descricao_fun" rows="3"></textarea>
+
+   
   </div>
   <div class="form-group">
   <img width = "300" id="pre_img">
