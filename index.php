@@ -1,7 +1,7 @@
 <?php
   include "./Jogos_escolares/funcoes/conexao.php";
 
-  $sql_np = "SELECT * from noticia join noticia_painel where id_no = fk_noticia";
+  $sql_np = "SELECT * from noticia join noticia_painel where id_no = fk_noticia ORDER BY fk_noticia desc" ;
   $resultado_np = mysqli_query($conexao, $sql_np);
 
 
@@ -77,7 +77,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="equipe.php">Equipe da Sejuve</a>
-          <a class="dropdown-item" href="#">Seleções municipais</a>
+          <a class="dropdown-item" href="selecoes_sobre.php">Seleções municipais</a>
           <a class="dropdown-item" href="Jogos_escolares/interface/adm.php">Administrativo</a>
           <a class="dropdown-item" href="sejuve_sobre.php">Contato</a>
           

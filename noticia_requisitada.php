@@ -66,7 +66,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="eventos.html">Calendário</a>
-          <a class="dropdown-item" href="./noticia.php/">Notícia</a>
+          <a class="dropdown-item" href="./noticia.php">Notícia</a>
           <a class="dropdown-item" href="./Jogos_escolares/">Jogos Escolares</a>
           <a class="dropdown-item" href="./Jogos_escolares/interface/jogos.php">Futebol Municipal</a>
         </div>
@@ -92,11 +92,11 @@
 </div>
 
 
-<div class="card mb-3 border-0 bg-transparent" style="max-width: 1200px; margin:auto; height:400px;!important;">
+<div class="card mb-3 border-0 bg-transparent" style="max-width:95%!important; margin:auto!important;">
   <div class="row no-gutters">
     <div class="col-md-4">
       <?php 
-        echo '<img src="./imagem/'.$dados_no['imagem_no'].'" class="card-img" alt="..." style="width:400px; height:400px;">'
+        echo '<img src="./imagem/'.$dados_no['imagem_no'].'" class="card-img" alt="..." style="width:100%; height:100!important;">'
       ?>
     </div>
     <div class="col-md-8">
@@ -119,10 +119,9 @@
 
 
 <div style="margin-top:20px">
-<div>        
+</div>        
 
-<div style="margin-top:90px;">
-
+<div style="margin-top:500px;">
 </div>
 
 <footer style="position: relative;
