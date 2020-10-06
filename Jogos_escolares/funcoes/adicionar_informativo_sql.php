@@ -1,5 +1,6 @@
 <?php
-include('conexao.php');
+session_start();
+include ('conexao.php');
 
 if(isset($_POST['adicionar_informativo'])){
     $id_no = mysqli_escape_string($conexao, $_POST['id_no']);
@@ -12,14 +13,17 @@ $row = mysqli_num_rows($result);
 
 if($row >= 6){
     header('Location:../interface/editar_pagina.php');
+    $_SESSION['login'][2] = "Erro, painel de notícias já atingiu seu limite";
 }
 else{
     $sql = "INSERT INTO noticia_painel (fk_noticia) values('$id_no')";
     if(mysqli_query($conexao, $sql)){
         header('Location:../interface/editar_pagina.php');
+        $_SESSION['login'][1] = "Adicinado com sucesso";
     }
     else{
         header('Location:../interface/editar_pagina.php');
+        $_SESSION['login'][2] = "ERRO AO ATUALIZAR";
 
     }
 }
@@ -69,17 +73,20 @@ if(isset($_POST['adicionar_informativo_sele'])){
             //verifica se a largura da imagem é maior que largura permitida
             if ($dimensões[0] > $lagura) {
                 $error[2] = "A largura da imagem não deve ultrapassar " . $lagura . "pixels";
-                header('Location: ../interface/editar_pagina2.php');
+                $_SESSION['login'][2] = $error[2];
+                header('Location: ../interface/editar_pagina.php');
             }
             //verifica se a altura da imagem é maior que a altura permitida
             if ($dimensões[0] > $altura) {
                 $error[3] = "A altura da imagem não deve ultrapassar " . $altura . " pixels";
-                header('Location: ../interface/editar_pagina3.php');
+                $_SESSION['login'][2] = $error[3];
+                header('Location: ../interface/editar_pagina.php');
             }
             //verifica o tamanho em bytes da imagem
             if ($imagem4_sm["size"] > $tamanho) {
                 $error[4] = "A imagem deve ter no máximo " . $tamanho . " bytes";
-                header('Location: ../interface/editar_pagina4.php');
+                $_SESSION['login'][2] = $error[4];
+                header('Location: ../interface/editar_pagina.php');
             }
             //se não houver erro
             if (count($error) == 0) {
@@ -101,7 +108,9 @@ if(isset($_POST['adicionar_informativo_sele'])){
                     $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
                 }
                 else{
-                    header('Location: ../interface/editar_pagina15.php');
+                    header('Location: ../interface/editar_pagina.php');
+                    $_SESSION['login'][] = "Erro ao atualizar";
+
                     
                 }
             }
@@ -136,7 +145,9 @@ if(isset($_POST['adicionar_informativo_sele'])){
         //verifica se o arquivo é uma imagem
         if (!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $imagem4_sm['type'])) {
             $error[1] = "ISSO NÃO É uma imagem";
-            header('Location: ../interface/editar_pagina1.php');
+            $_SESSION['login'][2] = $error[1];
+
+            header('Location: ../interface/editar_pagina.php');
         }
         //pega as dimensões da imagem
         $dimensões = getimagesize($imagem4_sm["tmp_name"]);
@@ -144,17 +155,23 @@ if(isset($_POST['adicionar_informativo_sele'])){
         //verifica se a largura da imagem é maior que largura permitida
         if ($dimensões[0] > $lagura) {
             $error[2] = "A largura da imagem não deve ultrapassar " . $lagura . "pixels";
-            header('Location: ../interface/editar_pagina2.php');
+            $_SESSION['login'][2] = $error[2];
+
+            header('Location: ../interface/editar_pagina.php');
         }
         //verifica se a altura da imagem é maior que a altura permitida
         if ($dimensões[0] > $altura) {
             $error[3] = "A altura da imagem não deve ultrapassar " . $altura . " pixels";
-            header('Location: ../interface/editar_pagina3.php');
+            $_SESSION['login'][2] = $error[3];
+
+            header('Location: ../interface/editar_pagina.php');
         }
         //verifica o tamanho em bytes da imagem
         if ($imagem4_sm["size"] > $tamanho) {
             $error[4] = "A imagem deve ter no máximo " . $tamanho . " bytes";
-            header('Location: ../interface/editar_pagina4.php');
+            $_SESSION['login'][2] = $error[4];
+
+            header('Location: ../interface/editar_pagina.php');
         }
         //se não houver erro
         if (count($error) == 0) {
@@ -175,7 +192,8 @@ if(isset($_POST['adicionar_informativo_sele'])){
             }
             else{
                 header('Location: ../interface/editar_pagina11.php');
-                
+                $_SESSION['login'][2] = "ERRO AO ATUALIZAR";
+
             }
         }
     }
@@ -216,6 +234,8 @@ if (!empty($imagem_no["name"])) {
     //verifica se o arquivo é uma imagem
     if (!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $imagem_no['type'])) {
         $error[1] = "ISSO NÃO É uma imagem";
+        $_SESSION['login'][2] = $error[1];
+
         header('Location: ../interface/editar_pagina1.php');
     }
     //pega as dimensões da imagem
@@ -224,17 +244,23 @@ if (!empty($imagem_no["name"])) {
     //verifica se a largura da imagem é maior que largura permitida
     if ($dimensões[0] > $lagura) {
         $error[2] = "A largura da imagem não deve ultrapassar " . $lagura . "pixels";
-        header('Location: ../interface/editar_pagina2.php');
+        $_SESSION['login'][2] = $error[2];
+
+        header('Location: ../interface/editar_pagina.php');
     }
     //verifica se a altura da imagem é maior que a altura permitida
     if ($dimensões[0] > $altura) {
         $error[3] = "A altura da imagem não deve ultrapassar " . $altura . " pixels";
-        header('Location: ../interface/editar_pagina3.php');
+        $_SESSION['login'][2] = $error[3];
+
+        header('Location: ../interface/editar_pagina.php');
     }
     //verifica o tamanho em bytes da imagem
     if ($imagem_no["size"] > $tamanho) {
         $error[4] = "A imagem deve ter no máximo " . $tamanho . " bytes";
-        header('Location: ../interface/editar_pagina4.php');
+        $_SESSION['login'][2] = $error[4];
+
+        header('Location: ../interface/editar_pagina.php');
     }
     //se não houver erro
     if (count($error) == 0) {
@@ -254,8 +280,9 @@ if (!empty($imagem_no["name"])) {
             $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
         }
         else{
-            header('Location: ../interface/editar_pagina2.php');
-            
+            header('Location: ../interface/editar_pagina.php');
+            $_SESSION['login'][2] = "ERRO AO ATUALIZAR";
+
         }
     }
 }
@@ -295,7 +322,9 @@ elseif(isset($_POST['adicionar_informativo_cp'])){
         //verifica se o arquivo é uma imagem
         if (!preg_match("/^image\/(pjpeg|jpeg|png|gif|bmp)$/", $imagem_cp['type'])) {
             $error[1] = "ISSO NÃO É uma imagem";
-            header('Location: ../interface/editar_pagina1.php');
+            $_SESSION['login'][2] = $error[1];
+
+            header('Location: ../interface/editar_pagina.php');
         }
         //pega as dimensões da imagem
         $dimensões = getimagesize($imagem_cp["tmp_name"]);
@@ -303,17 +332,23 @@ elseif(isset($_POST['adicionar_informativo_cp'])){
         //verifica se a largura da imagem é maior que largura permitida
         if ($dimensões[0] > $lagura) {
             $error[2] = "A largura da imagem não deve ultrapassar " . $lagura . "pixels";
-            header('Location: ../interface/editar_pagina2.php');
+            $_SESSION['login'][2] = $error[2];
+
+            header('Location: ../interface/editar_pagina.php');
         }
         //verifica se a altura da imagem é maior que a altura permitida
         if ($dimensões[0] > $altura) {
             $error[3] = "A altura da imagem não deve ultrapassar " . $altura . " pixels";
-            header('Location: ../interface/editar_pagina3.php');
+            $_SESSION['login'][2] = $error[3];
+
+            header('Location: ../interface/editar_pagina.php');
         }
         //verifica o tamanho em bytes da imagem
         if ($imagem_cp["size"] > $tamanho) {
             $error[4] = "A imagem deve ter no máximo " . $tamanho . " bytes";
-            header('Location: ../interface/editar_pagina4.php');
+            $_SESSION['login'][2] = $error[4];
+
+            header('Location: ../interface/editar_pagina.php');
         }
         //se não houver erro
         if (count($error) == 0) {
@@ -334,8 +369,9 @@ elseif(isset($_POST['adicionar_informativo_cp'])){
                 $_SESSION['login'][1] = "ATUALIZADO COM SUCESSO";
             }
             else{
-                header('Location: ../interface/editar_pagina2.php');
-                
+                header('Location: ../interface/editar_pagina.php');
+                $_SESSION['login'][2] = "ERRO AO ATUALIZAR";
+
             }
         }
     }

@@ -1,5 +1,8 @@
 <?php
+    session_start();
     include "../funcoes/conexao.php";
+    include "../funcoes/mensagem.php";
+    include "../funcoes/verifica_login_adm.php";
 
     $sql_noticia_painel = "SELECT * FROM noticia join noticia_painel where id_no = fk_noticia";
     $result_noticia_painel = mysqli_query($conexao, $sql_noticia_painel);
@@ -32,9 +35,21 @@
     <link rel="stylesheet" href="../../css/style_home.css">
     <title>Sejuve</title>
 
+   
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 </head>
 <body>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+  $('.toast').toast('show');
+});
+</script>
+
 
 
 
@@ -126,11 +141,17 @@
     }
     ?>
   
+
   
   
   
-  
-  
+  <div class="shadow-lg p-3 mb-5 rounded " style="width: 70%; margin: auto; margin-top: 6%;" id="info">
+  <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" >Novo Painel</p>
+  </div>
+
+  <div class="form-row text-white w-50 justify-content-center" style="margin:auto;">
+    <a class="btn btn-primary" href="adicionar_informativo.php?id_cp=<?php echo $id;?>">Adicionar</a>
+    </div>
   
 
   <?php
@@ -139,9 +160,6 @@
   <div class="shadow-lg p-3 mb-5 rounded " style="width: 70%; margin: auto; margin-top: 6%;" id="info">
   <p class="text-center font-weight-bold text-uppercase" style="font-size: 30px!important" ><?php echo $dados_cp['titulo_painel_cp'] ?></p>
   </div>
-  <div class="form-row text-white w-50 justify-content-center" style="margin:auto;">
-    <a class="btn btn-primary" href="adicionar_informativo.php?id_cp=<?php echo $id;?>">Adicionar</a>
-    </div>
 
 
   <div class="form-row text-white w-100 justify-content-center" style="margin-left:auto;">
@@ -474,6 +492,7 @@ $('#myTab a').on('click', function (e) {
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+ 
   <!-- Menu Toggle Script -->
   <script>
     $("#menu-toggle").click(function(e) {
@@ -481,5 +500,6 @@ $('#myTab a').on('click', function (e) {
       $("#wrapper").toggleClass("toggled");
     });
   </script>
+
 </body>
 </html>
