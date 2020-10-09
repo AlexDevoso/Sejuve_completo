@@ -46,7 +46,7 @@ include ('conexao.php');
 
         $id_no = mysqli_escape_string($conexao, $_POST['id_no']);
         
-        $mostrar_imagem_nt = "SELECT imagem_no from noticia where id_no = '$id_no'";
+        $mostrar_imagem_nt = "SELECT imagem_no, imagem2_no, imagem3_no from noticia where id_no = '$id_no'";
         $result_mostrar_nt = mysqli_query($conexao, $mostrar_imagem_nt);
         $dados_mostrar_nt = mysqli_fetch_array($result_mostrar_nt);
         
@@ -57,6 +57,8 @@ include ('conexao.php');
 
             if(mysqli_query($conexao, $sql_nt)){
                 unlink("../../imagem/".$dados_mostrar_nt['imagem_no']);
+                unlink("../../imagem/".$dados_mostrar_nt['imagem2_no']);
+                unlink("../../imagem/".$dados_mostrar_nt['imagem3_no']);
                 $_SESSION['login'][1] = "DELETADO COM SUCESSO";
                 header('Location: ../interface/editar_pagina.php');
             }
