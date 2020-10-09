@@ -31,10 +31,12 @@
   p{
     font-family: Helvetica, sans-serif!important;
     font-weight:normal;
+    font-size:20px;
   }
   h5{
     color:#00ffff!important;
     font-weight:bold;
+    font-size:30px;
   }
  a:hover{
     color:#00ffff!important;
@@ -114,6 +116,62 @@
     </div>
   
   </div>
+
+</div>
+<div class="row row-cols-1 row-cols-md-2" style="max-width:100%!important; margin-left:1%; margin-right:1%;">
+
+<?php
+if(!empty($dados_no['imagem2_no'])){
+
+?>
+
+
+
+
+<div class="col mb-4">
+    <div class="card border-0 bg-transparent" style="margin-top:10%; ">
+      <?php echo '<img src="./imagem/'.$dados_no['imagem2_no'].'" class="card-img-top" alt="..." >'?>
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $dados_no['titulo2_no'] ?></h5>
+        <p class="card-text text-white"><?php echo $dados_no['descricao2_no']?></p>
+      </div>
+    </div>
+  </div>
+  
+ 
+
+ 
+
+
+<?php
+}
+if(!empty($dados_no['imagem3_no'])){
+?>
+
+
+
+
+
+<div class="col mb-4">
+    <div class="card border-0 bg-transparent" style="margin-top:10%; ">
+      <?php echo '<img src="./imagem/'.$dados_no['imagem3_no'].'" class="card-img-top" alt="..." >'?>
+      <div class="card-body">
+        <h5 class="card-title"><?php echo $dados_no['titulo3_no'] ?></h5>
+        <p class="card-text text-white"><?php echo $dados_no['descricao3_no'] ?></p>
+      </div>
+    </div>
+  </div>
+  
+ 
+
+ 
+
+
+
+<?php
+}
+
+?>
 
 </div>
 
