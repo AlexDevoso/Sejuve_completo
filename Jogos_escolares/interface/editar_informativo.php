@@ -86,6 +86,56 @@ if(!empty($_GET['id_no'])){
   <button type="submit" class="btn btn-primary" name="editar_informativo">Enviar</button>
 </form>
 </div>
+
+
+
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/editar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+  
+  <div class="form-group">
+      <label >Titulo 2</label>
+      <input type="text" class="form-control" id="inputEmail4" name="titulo2_no" value="<?php echo $dados_no['titulo2_no']; ?>">
+    </div>
+  <div class="form-group">
+    <label >Descrição 3</label>
+
+    <textarea type="text" class="form-control" rows="3"  name="descricao2_no" ><?php echo $dados_no['descricao2_no'];?></textarea>
+  </div>
+  <div class="form-group">
+    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_no['imagem2_no'].'">'?>
+  </div>
+  <div class="form-group">
+    <label >Imagem</label>
+    <input type="file" class="" name="imagem2_no" id="real-file"  onchange="previewImagem()">
+  </div>
+  <input type="hidden" name="id_no" value="<?php echo $dados_no['id_no'];?>"> 
+  <button type="submit" class="btn btn-primary" name="editar_informativo_2">Enviar</button>
+</form>
+</div>
+
+<div class="w-50 text-white" style="margin:auto; margin-top:100px;">
+<form action="../funcoes/editar_informativo_sql.php" method="POST" enctype="multipart/form-data">
+  
+  <div class="form-group">
+      <label >Titulo 3</label>
+      <input type="text" class="form-control" id="inputEmail4" name="titulo3_no" value="<?php echo $dados_no['titulo3_no']; ?>">
+    </div>
+  <div class="form-group">
+    <label >Descrição 3</label>
+
+    <textarea type="text" class="form-control" rows="3"  name="descricao3_no" ><?php echo $dados_no['descricao3_no'];?></textarea>
+  </div>
+  <div class="form-group">
+    <?php echo '<img width = "300" id="pre_img" src="../../imagem/'.$dados_no['imagem3_no'].'">'?>
+  </div>
+  <div class="form-group">
+    <label >Imagem</label>
+    <input type="file" class="" name="imagem3_no" id="real-file"  onchange="previewImagem()">
+  </div>
+  <input type="hidden" name="id_no" value="<?php echo $dados_no['id_no'];?>"> 
+  <button type="submit" class="btn btn-primary" name="editar_informativo_3">Enviar</button>
+</form>
+</div>
 <?php
 }
 else if(!empty($_GET['id_sm'])){
